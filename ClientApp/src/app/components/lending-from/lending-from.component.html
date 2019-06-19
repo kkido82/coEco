@@ -1,0 +1,29 @@
+<section class="lendingFromSection">
+  <app-search-bar
+    #searchBar
+    (submitSearch)="searchItems($event)"
+  ></app-search-bar>
+
+  <div class="stripTitle" [innerHtml]="listText()"></div>
+
+  <app-previous-requests
+    [requests]="prevRequests"
+    (select)="updateOrder($event)"
+    *ngIf="!showSearchResults"
+  ></app-previous-requests>
+
+  <app-search-results
+    *ngIf="showSearchResults"
+    [items]="searchResults"
+    (select)="openNewOrder($event)"
+  ></app-search-results>
+
+  <app-order-details
+    *ngIf="order"
+    class="orderDetails"
+    [details]="order"
+    [class.show]="orderDetailsOpened"
+    (close)="closeDetails()"
+  >
+  </app-order-details>
+</section>

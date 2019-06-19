@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "itemId": 1,
+  "itemName": "asd",
+  "fromUnit": "asd",
+  "statusId": -1,
+  "orderDate": "",
+  "cost": 20,
+  "distance": 23,
+  "itemDescription": "תיאור פריט ביחידה",
+  "contactPersonName": "אסף אמדורסקי",
+  "contactPersonPhone": "03-123456",
+  "remarks": "פרטים...",
+  "actions": [0]
+}

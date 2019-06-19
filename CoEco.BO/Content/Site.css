@@ -1,0 +1,256 @@
+﻿.main-header .logo {
+    height: 57px;
+}
+
+.signed-out .content-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin-right: 0;
+    z-index: 999999999;
+}
+
+#entitiesDropdownList {
+    height: 50vh;
+    overflow: auto;
+}
+
+.sidebar-mini .main-header > .navbar {
+    margin-right: 230px;
+}
+
+.sidebar-mini.sidebar-collapse .main-header > .navbar {
+    margin-right: 0;
+}
+
+
+
+@media (min-width: 768px) {
+    .sidebar-collapse .content-wrapper, .sidebar-collapse .right-side, .sidebar-collapse .main-footer {
+        margin-right: 50px;
+    }
+}
+
+.content-wrapper {
+    position: relative;
+}
+
+    .content-wrapper #loading-bar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 5px;
+    }
+
+        .content-wrapper #loading-bar .bar {
+            position: relative;
+            height: 5px;
+        }
+
+.modal-specialWidth .modal-dialog  {
+    width: 1200px;
+    margin: 30px auto;
+}
+
+.spin-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    justify-content: center;
+}
+
+
+.side-nav.active .fa-angle-left {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.tab-pane {
+    padding: 0.5em;
+}
+
+#loading-bar-spinner {
+    top: 50% !important;
+    left: 50%;
+    -moz-transform: scale(3);
+    -ms-transform: scale(3);
+    -o-transform: scale(3);
+    -webkit-transform: scale(3);
+    transform: scale(3);
+}
+.modal-scroller{
+    height: 400px;
+    overflow-y: scroll;
+}
+.tabs-content {
+    padding: 3rem;
+    background-color: white;
+}
+
+.card {
+    background-color: white;
+    border: solid 1px whitesmoke;
+    padding: 2rem 0.5rem;
+    margin: 1rem 0;
+    color: #222d32;
+    box-shadow: #222d32 0px 0px 5px;
+    transition: all ease 0.3s;
+    opacity: 0.9;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+.sidebar-menu.sub {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #222d32;
+    z-index: 999;
+    width: 150px;
+    bottom: 0;
+    max-height: calc(100vh - 57px);
+    overflow-y: auto;
+}
+
+ui-view {
+    display: block;
+}
+
+    ui-view.ng-enter {
+        animation: fadeInUp .5s;
+    }
+
+
+
+    ui-view.main-view.ng-enter.ng-enter-active {
+        opacity: 1;
+    }
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+    transition: transform linear 0.3s;
+}
+
+.sidebar-menu.sub a {
+    color: white;
+}
+
+.sidebar-menu.sub.smaller a {
+    padding: 3px 15px 3px 5px;
+}
+
+.content.maincontent {
+    margin-right: 0;
+    transition: margin ease 0.3s;
+}
+
+.sub-open .content.maincontent {
+    margin-right: 150px;
+}
+
+
+[ui-view=submenu] .sidebar-menu {
+    transition: transform linear 0.3s;
+}
+
+[ui-view=submenu].ng-enter .sidebar-menu, [ui-view=submenu].ng-leave-active .sidebar-menu {
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+[ui-view=submenu].ng-enter.ng-enter-active .sidebar-menu, [ui-view=submenu].ng-enter.ng-leave .sidebar-menu {
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+
+.blue{
+     background-color: deepskyblue
+         !important;
+}
+.purple{
+     background-color: mediumpurple
+         !important;
+}
+
+
+
+.main-panel {
+    margin-top: 2rem;
+    height: calc(100vh - 120px);
+}
+
+.signed-out .main-panel {
+    background-color: #ecf0f5;
+}
+
+.pagination li > div {
+    float: right;
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd;
+    margin-right: -1px;
+    margin-left: 0;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+}
+
+    .pagination li > div > label {
+        margin-bottom: 0;
+        color: #222d32;
+    }
+
+
+.modal-backdrop.opaque.in {
+    opacity: 0.95;
+    background-color: white;
+}
+
+.btn {
+    -ms-border-radius: 0 !important;
+    border-radius: 0 !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-width: 1px;
+}
+
+.daterangepicker .calendar-time {
+    direction: ltr !important;
+}
+
+.direction-ltr {
+    direction: ltr;
+}
+
+table.table thead tr th {
+    cursor: pointer;
+}
+
+.clearRow {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+td {
+    word-wrap: break-word;
+}

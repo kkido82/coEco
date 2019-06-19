@@ -1,0 +1,35 @@
+﻿<div>
+    <!--ng-show="vm.canEdit"-->
+    <errors-alert errors="vm.errors"></errors-alert>
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <button type="button" class="btn btn-app btn-bitbucket 'btn-success' pull-left owr" ng-if="vm.canEdit" ng-click="vm.save()"><i class="fa fa-save"></i>שמור </button>
+            <a class="btn btn-app btn-bitbucket pull-left" ui-sref="manageItems.list">
+                <i class="fa fa-arrow-right"></i>
+                חזרה
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">שם פריט:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.Name" />
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">עלות:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.Cost" type="number" />
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">אייקון:</label>
+            <select class="col-sm-8 form-control" placeholder="אייקון" ng-model="vm.entity.IconStoreID" entities-dropdown="IconStores" value-field="ID" text-field="Name"
+                    service-name="dataService"></select>
+
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">חסום:</label>
+            <input type="checkbox" ng-model="vm.entity.Disable" />
+        </div>
+
+    </div>
+</div>

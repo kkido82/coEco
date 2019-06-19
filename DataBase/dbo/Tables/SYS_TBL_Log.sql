@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[SYS_TBL_Log]
+(
+	[ID] INT PRIMARY KEY IDENTITY (1, 1) NOT NULL, 
+	[TZ] NVARCHAR(9) NOT NULL,
+	[Message] NVARCHAR(max) NOT NULL,
+	[LogType] NVARCHAR(10) NOT NULL,
+	[CreatedOn] DATETIME2 NOT NULL, 
+    [CreatedBy] NVARCHAR(50) NOT NULL, 
+    [UpdatedOn] DATETIME2 NOT NULL, 
+    [UpdatedBy] NVARCHAR(50) NOT NULL, 
+    [Disable] BIT NOT NULL
+
+)

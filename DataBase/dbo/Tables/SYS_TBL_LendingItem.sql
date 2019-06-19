@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[SYS_TBL_LendingItem]
+(
+	[ID] INT PRIMARY KEY IDENTITY (1, 1) NOT NULL, 
+	[ItemID] INT NOT NULL,
+	[UnitRequestsID] INT NOT NULL,
+	[UnitLendingID] INT NOT NULL,
+	[OrderDate] DATETIME2 NOT NULL,
+	[MemberID] INT NOT NULL,
+	[Remarks] NVARCHAR(1000) NULL,
+	[OrderStatusID] INT NOT NULL,
+	[RatingLendingUnit] FLOAT NULL,
+	[RatingRequestUnit] FLOAT NULL,
+	[ProblemDescriptionLendingUnit] NVARCHAR(1000) NULL,
+	[ProblemDescriptionRequestUnit] NVARCHAR(1000) NULL,
+	[CreatedOn] DATETIME2 NOT NULL, 
+    [CreatedBy] NVARCHAR(50) NOT NULL, 
+    [UpdatedOn] DATETIME2 NOT NULL, 
+    [UpdatedBy] NVARCHAR(50) NOT NULL, 
+    [Disable] BIT NOT NULL
+	CONSTRAINT [FK_SYS_TBL_LendingItem_SYS_TBL_Item] FOREIGN KEY ([ItemID]) REFERENCES [dbo].[SYS_TBL_Item] ([ID]),
+	[Price] INT NOT NULL DEFAULT 0, 
+    CONSTRAINT [FK_SYS_TBL_LendingItem_SYS_TBL_Unit] FOREIGN KEY ([UnitRequestsID]) REFERENCES [dbo].[SYS_TBL_Unit] ([ID]),
+	CONSTRAINT [FK_SYS_TBL_LendingItem_SYS_TBL_Members] FOREIGN KEY ([MemberID]) REFERENCES [dbo].[SYS_TBL_Members] ([ID]),
+	CONSTRAINT [FK_SYS_TBL_LendingItem_SYS_TBL_OrderStatus] FOREIGN KEY ([OrderStatusID]) REFERENCES [dbo].[SYS_TBL_OrderStatus] ([ID]),
+	CONSTRAINT [FK_SYS_TBL_LendingItem_SYS_TBL_UnitLeading] FOREIGN KEY ([UnitLendingID]) REFERENCES [dbo].[SYS_TBL_Unit] ([ID]),
+)

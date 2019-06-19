@@ -1,0 +1,14 @@
+﻿
+   
+    <ul class="sidebar-menu sub" ng-scrollbars ng-scrollbars-config="{axis:'y'}">
+    <li>
+        <div style="padding:3px ;max-width:95%;overflow:hidden;position:relative">
+            <i style="position:absolute;left:5px;color:black;display:block;padding-top:5px;" class="fa fa-search"></i>
+            <input  placeholder="סנן" type="text" ng-model="vm.search" />
+        </div>
+    </li>
+    <li ng-repeat="v in vm.valueEntityTypes | filter:vm.search" ng-class="{'active':v.name===vm.navState.name}">
+
+        <a ui-sref="values.list({entityType:v.name})">{{v.title}}</a>
+    </li>
+</ul>

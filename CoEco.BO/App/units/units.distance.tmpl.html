@@ -1,0 +1,44 @@
+﻿<div>
+    <!--ng-show="vm.canEdit"-->
+    <errors-alert errors="vm.errors"></errors-alert>
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <button type="button" 
+                    class="btn btn-app btn-bitbucket 'btn-success' pull-left owr" 
+                    ng-click="vm.save(vm.inputs)"
+                    ng-disabled="!vm.isValid(vm.inputs)" 
+                    ><i class="fa fa-save"></i>שמור </button>
+            <a class="btn btn-app btn-bitbucket pull-left" ui-sref="units.list">
+                <i class="fa fa-arrow-right"></i>
+                חזרה
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            <table class="table table-striped table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th ng-repeat="unit in vm.units">
+                            {{ unit.name }}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="a in vm.units">
+                        <th>{{ a.name }}</th>
+                        <th ng-repeat="b in vm.units" ng-init="key = vm.getKey(a.id,b.id)">
+                            <input style="width:50px"
+                                   type="number"
+                                   ng-if="a.id != b.id"
+                                   ng-model="vm.inputs[key]"
+                                   min="1" />
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

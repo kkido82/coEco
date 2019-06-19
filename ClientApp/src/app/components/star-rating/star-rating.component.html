@@ -1,0 +1,91 @@
+<form [formGroup]="form" class="starRating">
+  <input
+    formControlName="rating"
+    value="5"
+    [id]="'star5' + startIndex"
+    type="radio"
+    name="rating"
+    class="visuallyhidden"
+  />
+  <label [for]="'star5' + startIndex" (click)="rate()">
+    <svg viewBox="0 0 512 512">
+      <path
+        d="M512 198.525l-176.89-25.704-79.11-160.291-79.108 160.291-176.892 25.704 128 124.769-30.216 176.176 158.216-83.179 158.216 83.179-30.217-176.176 128.001-124.769z"
+      ></path>
+    </svg>
+    <div class="counter">5</div>
+  </label>
+
+  <input
+    formControlName="rating"
+    value="4"
+    [id]="'star4' + startIndex"
+    type="radio"
+    name="rating"
+    class="visuallyhidden"
+  />
+  <label [for]="'star4' + startIndex" (click)="rate()">
+    <svg viewBox="0 0 512 512">
+      <path
+        d="M512 198.525l-176.89-25.704-79.11-160.291-79.108 160.291-176.892 25.704 128 124.769-30.216 176.176 158.216-83.179 158.216 83.179-30.217-176.176 128.001-124.769z"
+      ></path>
+    </svg>
+    <div class="counter">4</div>
+
+  </label>
+
+  <input
+    formControlName="rating"
+    value="3"
+    [id]="'star3' + startIndex"
+    type="radio"
+    name="rating"
+    class="visuallyhidden"
+  />
+  <label [for]="'star3' + startIndex" (click)="rate()">
+    <svg viewBox="0 0 512 512">
+      <path
+        d="M512 198.525l-176.89-25.704-79.11-160.291-79.108 160.291-176.892 25.704 128 124.769-30.216 176.176 158.216-83.179 158.216 83.179-30.217-176.176 128.001-124.769z"
+      ></path>
+    </svg>
+    <div class="counter">3</div>
+
+  </label>
+
+  <input
+    formControlName="rating"
+    value="2"
+    [id]="'star2' + startIndex"
+    type="radio"
+    name="rating"
+    class="visuallyhidden"
+  />
+  <label [for]="'star2' + startIndex" (click)="rate()">
+    <svg viewBox="0 0 512 512">
+      <path
+        d="M512 198.525l-176.89-25.704-79.11-160.291-79.108 160.291-176.892 25.704 128 124.769-30.216 176.176 158.216-83.179 158.216 83.179-30.217-176.176 128.001-124.769z"
+      ></path>
+    </svg>
+    <div class="counter">2</div>
+
+  </label>
+
+  <input
+    formControlName="rating"
+    value="1"
+    [id]="'star1' + startIndex"
+    type="radio"
+    name="rating"
+    class="visuallyhidden"
+  />
+  <label [for]="'star1' + startIndex" (click)="rate()">
+    <svg viewBox="0 0 512 512">
+      <path
+        d="M512 198.525l-176.89-25.704-79.11-160.291-79.108 160.291-176.892 25.704 128 124.769-30.216 176.176 158.216-83.179 158.216 83.179-30.217-176.176 128.001-124.769z"
+      ></path>
+    </svg>
+    <div class="counter">1</div>
+  </label>
+
+</form>
+

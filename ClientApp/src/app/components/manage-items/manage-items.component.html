@@ -1,0 +1,28 @@
+<app-search-bar (submitSearch)="searchItems($event)" #searchBar></app-search-bar>
+<section class="manageItemsSection">
+  <div class="manageItemsSection__headers">
+    <div class="manageItemsSection__itemHeader ">פריט</div>
+    <div class="manageItemsSection__actionsHeader">כמות</div>
+  </div>
+  <div>
+    <ul class="manageItemsList">
+      <li class="manageItemsList__item" *ngFor="let item of itemsToShow">
+        <label class="customCheckBox">
+          <input
+            type="checkbox"
+            (click)="$event.preventDefault(); onAdd(item)"
+            [ngClass]="{'checked': item.isNew}"
+            [checked]="item.isNew"
+          />
+          <div class="checkmark"></div>
+        </label>
+        <app-manage-item
+        class="manageItemCmp"
+        [item]="item"
+        [permissions]="permissions"
+        (itemChange)="onItemChange($event)"
+        ></app-manage-item>
+      </li>
+    </ul>
+  </div>
+</section>

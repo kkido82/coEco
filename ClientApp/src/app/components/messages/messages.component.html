@@ -1,0 +1,40 @@
+<section class="messagesSection" *ngIf="messages">
+  <div class="pageHeading">
+    <div class="pageHeading__textsWrapper">
+      <div class="pageHeading__text" appText="messages"></div>
+      &nbsp;
+      <div class="pageHeading__text">({{ messages.length }})</div>
+    </div>
+    <button class="backArrow" (click)="close()"></button>
+  </div>
+
+  <ul class="messages">
+    <li class="messages__item" *ngFor="let item of messages">
+      <a class="messages__link" (click)="showDetails(item)">
+        <div class="messages__imgWrapper">
+          <img
+            src="assets/imgs/envelopeicon.png"
+            class="messages__img"
+            alt=""
+          />
+        </div>
+
+        <div class="messageTexts">
+          <div class="messageTexts__date">
+            {{ item.date | amDateFormat:'DD.MM.YY' }}
+          </div>
+          <div class="messageTexts__info">{{ item.title }}</div>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+  <app-order-details
+    *ngIf="order"
+    class="orderDetails"
+    [details]="order"
+    [class.show]="orderDetailsOpened"
+    (close)="closeDetails()"
+  >
+  </app-order-details>
+</section>

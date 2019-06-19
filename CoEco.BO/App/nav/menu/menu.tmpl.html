@@ -1,0 +1,27 @@
+﻿<ul class="sidebar-menu">
+    <li ng-repeat="item in vm.nav | orderBy:'orderIndex'" ui-sref-active="active" ng-if=vm.permissions[item.name]>
+        <a ui-sref="{{item.name}}" ng-click="vm.toggleSubMenu()">
+            <i class="fa fa-{{item.icon}}"></i>
+            <span>{{item.title}}</span>
+
+            <span class="pull-left-container" ng-if="item.hasSubMenu">
+                <i class="fa fa-angle-left pull-left"></i>
+            </span>
+        </a>
+    </li>
+    <!--<li ui-sref-active="active">
+        <a ui-sref="searchNewUser.list">משתמשי מערכת</a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="workOrder.list">תעודות משלוח</a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="phoneNumber.list">אנשי קשר - ספר טלפונים</a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="regulation.list">פקודות ונהלים</a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="ticketList.list">פניות</a>
+    </li>-->
+</ul>

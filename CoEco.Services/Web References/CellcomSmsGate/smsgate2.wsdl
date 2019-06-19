@@ -1,0 +1,1217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sms.cellcom.co.il/smsgate/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://sms.cellcom.co.il/smsgate/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cellcom SMS Gateway Interface 2</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://sms.cellcom.co.il/smsgate/">
+      <s:element name="WapPush">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pushUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WapPushResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WapPushResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsConcatenated">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DelimStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Validity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewLineSegments" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Replace" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Immediate" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsConcatenatedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsConcatenatedResult" type="tns:ArrayOfSendSmsAck" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSendSmsAck">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SendSmsAck" nillable="true" type="tns:SendSmsAck" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SendSmsAck">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MessageIdInt" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendLocationSms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Target" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendLocationSmsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendLocationSmsResult" type="tns:SendSmsAck" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendLocationSms2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Target" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendLocationSms2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendLocationSms2Result" type="tns:SendSmsAck" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendLocationSms3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Target" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="RequestDR" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Validity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendLocationSms3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendLocationSms3Result" type="tns:SendSmsAck" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Validity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Replace" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Immediate" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsResult" type="tns:ArrayOfSendSmsAck" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pushUrl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="validity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="replace" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="immediate" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isBinary" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="deliveryReceipt" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxSegments" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsExResult" type="tns:ArrayOfSendSmsAck" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsExRB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pushUrl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="validity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="replace" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="immediate" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isBinary" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="deliveryReceipt" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxSegments" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="categoryName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsExRBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsExRBResult" type="tns:ArrayOfSendSmsAck" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsPipe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pushUrl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="validity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="replace" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="immediate" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isBinary" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="deliveryReceipt" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxSegments" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isMarketing" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="senderName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senderPhone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsPipeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsPipeResult" type="tns:ArrayOfSendSmsAck" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsPipeRB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pushUrl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="validity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="replace" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="immediate" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isBinary" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="deliveryReceipt" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxSegments" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isMarketing" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="senderName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senderPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="categoryName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsPipeRBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsPipeRBResult" type="tns:ArrayOfSendSmsAck" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRoutingUri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RouteUri" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRoutingUriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetRoutingUriResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfSendSmsAck" nillable="true" type="tns:ArrayOfSendSmsAck" />
+      <s:element name="SendSmsAck" nillable="true" type="tns:SendSmsAck" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="WapPushSoapIn">
+    <wsdl:part name="parameters" element="tns:WapPush" />
+  </wsdl:message>
+  <wsdl:message name="WapPushSoapOut">
+    <wsdl:part name="parameters" element="tns:WapPushResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsConcatenatedSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSmsConcatenated" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsConcatenatedSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsConcatenatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSmsSoapIn">
+    <wsdl:part name="parameters" element="tns:SendLocationSms" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSmsSoapOut">
+    <wsdl:part name="parameters" element="tns:SendLocationSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms2SoapIn">
+    <wsdl:part name="parameters" element="tns:SendLocationSms2" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms2SoapOut">
+    <wsdl:part name="parameters" element="tns:SendLocationSms2Response" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms3SoapIn">
+    <wsdl:part name="parameters" element="tns:SendLocationSms3" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms3SoapOut">
+    <wsdl:part name="parameters" element="tns:SendLocationSms3Response" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSms" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSmsEx" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsExResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExRBSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSmsExRB" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExRBSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsExRBResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSmsPipe" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsPipeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeRBSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSmsPipeRB" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeRBSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsPipeRBResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetRoutingUriSoapIn">
+    <wsdl:part name="parameters" element="tns:SetRoutingUri" />
+  </wsdl:message>
+  <wsdl:message name="SetRoutingUriSoapOut">
+    <wsdl:part name="parameters" element="tns:SetRoutingUriResponse" />
+  </wsdl:message>
+  <wsdl:message name="WapPushHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="target" type="s:string" />
+    <wsdl:part name="pushUrl" type="s:string" />
+    <wsdl:part name="description" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WapPushHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsConcatenatedHttpGetIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Target" type="s:string" />
+    <wsdl:part name="Source" type="s:string" />
+    <wsdl:part name="Message" type="s:string" />
+    <wsdl:part name="DelimStr" type="s:string" />
+    <wsdl:part name="Validity" type="s:string" />
+    <wsdl:part name="NewLineSegments" type="s:string" />
+    <wsdl:part name="Replace" type="s:string" />
+    <wsdl:part name="Immediate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsConcatenatedHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSmsHttpGetIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Target" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSmsHttpGetOut">
+    <wsdl:part name="Body" element="tns:SendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms2HttpGetIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Target" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms2HttpGetOut">
+    <wsdl:part name="Body" element="tns:SendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms3HttpGetIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Target" type="s:string" />
+    <wsdl:part name="RequestDR" type="s:string" />
+    <wsdl:part name="Validity" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms3HttpGetOut">
+    <wsdl:part name="Body" element="tns:SendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsHttpGetIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Target" type="s:string" />
+    <wsdl:part name="Source" type="s:string" />
+    <wsdl:part name="Message" type="s:string" />
+    <wsdl:part name="Validity" type="s:string" />
+    <wsdl:part name="Replace" type="s:string" />
+    <wsdl:part name="Immediate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="target" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="pushUrl" type="s:string" />
+    <wsdl:part name="validity" type="s:string" />
+    <wsdl:part name="replace" type="s:string" />
+    <wsdl:part name="immediate" type="s:string" />
+    <wsdl:part name="isBinary" type="s:string" />
+    <wsdl:part name="deliveryReceipt" type="s:string" />
+    <wsdl:part name="maxSegments" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExRBHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="target" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="pushUrl" type="s:string" />
+    <wsdl:part name="validity" type="s:string" />
+    <wsdl:part name="replace" type="s:string" />
+    <wsdl:part name="immediate" type="s:string" />
+    <wsdl:part name="isBinary" type="s:string" />
+    <wsdl:part name="deliveryReceipt" type="s:string" />
+    <wsdl:part name="maxSegments" type="s:string" />
+    <wsdl:part name="categoryName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExRBHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="target" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="pushUrl" type="s:string" />
+    <wsdl:part name="validity" type="s:string" />
+    <wsdl:part name="replace" type="s:string" />
+    <wsdl:part name="immediate" type="s:string" />
+    <wsdl:part name="isBinary" type="s:string" />
+    <wsdl:part name="deliveryReceipt" type="s:string" />
+    <wsdl:part name="maxSegments" type="s:string" />
+    <wsdl:part name="isMarketing" type="s:string" />
+    <wsdl:part name="senderName" type="s:string" />
+    <wsdl:part name="senderPhone" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeRBHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="target" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="pushUrl" type="s:string" />
+    <wsdl:part name="validity" type="s:string" />
+    <wsdl:part name="replace" type="s:string" />
+    <wsdl:part name="immediate" type="s:string" />
+    <wsdl:part name="isBinary" type="s:string" />
+    <wsdl:part name="deliveryReceipt" type="s:string" />
+    <wsdl:part name="maxSegments" type="s:string" />
+    <wsdl:part name="isMarketing" type="s:string" />
+    <wsdl:part name="senderName" type="s:string" />
+    <wsdl:part name="senderPhone" type="s:string" />
+    <wsdl:part name="categoryName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeRBHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SetRoutingUriHttpGetIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="RouteUri" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetRoutingUriHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WapPushHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="target" type="s:string" />
+    <wsdl:part name="pushUrl" type="s:string" />
+    <wsdl:part name="description" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WapPushHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsConcatenatedHttpPostIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Target" type="s:string" />
+    <wsdl:part name="Source" type="s:string" />
+    <wsdl:part name="Message" type="s:string" />
+    <wsdl:part name="DelimStr" type="s:string" />
+    <wsdl:part name="Validity" type="s:string" />
+    <wsdl:part name="NewLineSegments" type="s:string" />
+    <wsdl:part name="Replace" type="s:string" />
+    <wsdl:part name="Immediate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsConcatenatedHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSmsHttpPostIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Target" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSmsHttpPostOut">
+    <wsdl:part name="Body" element="tns:SendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms2HttpPostIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Target" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms2HttpPostOut">
+    <wsdl:part name="Body" element="tns:SendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms3HttpPostIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Target" type="s:string" />
+    <wsdl:part name="RequestDR" type="s:string" />
+    <wsdl:part name="Validity" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendLocationSms3HttpPostOut">
+    <wsdl:part name="Body" element="tns:SendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsHttpPostIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Target" type="s:string" />
+    <wsdl:part name="Source" type="s:string" />
+    <wsdl:part name="Message" type="s:string" />
+    <wsdl:part name="Validity" type="s:string" />
+    <wsdl:part name="Replace" type="s:string" />
+    <wsdl:part name="Immediate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="target" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="pushUrl" type="s:string" />
+    <wsdl:part name="validity" type="s:string" />
+    <wsdl:part name="replace" type="s:string" />
+    <wsdl:part name="immediate" type="s:string" />
+    <wsdl:part name="isBinary" type="s:string" />
+    <wsdl:part name="deliveryReceipt" type="s:string" />
+    <wsdl:part name="maxSegments" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExRBHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="target" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="pushUrl" type="s:string" />
+    <wsdl:part name="validity" type="s:string" />
+    <wsdl:part name="replace" type="s:string" />
+    <wsdl:part name="immediate" type="s:string" />
+    <wsdl:part name="isBinary" type="s:string" />
+    <wsdl:part name="deliveryReceipt" type="s:string" />
+    <wsdl:part name="maxSegments" type="s:string" />
+    <wsdl:part name="categoryName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsExRBHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="target" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="pushUrl" type="s:string" />
+    <wsdl:part name="validity" type="s:string" />
+    <wsdl:part name="replace" type="s:string" />
+    <wsdl:part name="immediate" type="s:string" />
+    <wsdl:part name="isBinary" type="s:string" />
+    <wsdl:part name="deliveryReceipt" type="s:string" />
+    <wsdl:part name="maxSegments" type="s:string" />
+    <wsdl:part name="isMarketing" type="s:string" />
+    <wsdl:part name="senderName" type="s:string" />
+    <wsdl:part name="senderPhone" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeRBHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="target" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="pushUrl" type="s:string" />
+    <wsdl:part name="validity" type="s:string" />
+    <wsdl:part name="replace" type="s:string" />
+    <wsdl:part name="immediate" type="s:string" />
+    <wsdl:part name="isBinary" type="s:string" />
+    <wsdl:part name="deliveryReceipt" type="s:string" />
+    <wsdl:part name="maxSegments" type="s:string" />
+    <wsdl:part name="isMarketing" type="s:string" />
+    <wsdl:part name="senderName" type="s:string" />
+    <wsdl:part name="senderPhone" type="s:string" />
+    <wsdl:part name="categoryName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsPipeRBHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSendSmsAck" />
+  </wsdl:message>
+  <wsdl:message name="SetRoutingUriHttpPostIn">
+    <wsdl:part name="Username" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="RouteUri" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetRoutingUriHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="SmsGate2Soap">
+    <wsdl:operation name="WapPush">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send wap url using wap push. Use description to send push service indication or empty description to send push service load.</wsdl:documentation>
+      <wsdl:input message="tns:WapPushSoapIn" />
+      <wsdl:output message="tns:WapPushSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsConcatenated">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text message to Cellcom subscriber.</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsConcatenatedSoapIn" />
+      <wsdl:output message="tns:SendSmsConcatenatedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send type 0 silent SMS to page a subscriber, short message</wsdl:documentation>
+      <wsdl:input message="tns:SendLocationSmsSoapIn" />
+      <wsdl:output message="tns:SendLocationSmsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send type 0 silent SMS to page a subscriber, long message</wsdl:documentation>
+      <wsdl:input message="tns:SendLocationSms2SoapIn" />
+      <wsdl:output message="tns:SendLocationSms2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send type 0 silent SMS to page a subscriber, short message, with validity and DR</wsdl:documentation>
+      <wsdl:input message="tns:SendLocationSms3SoapIn" />
+      <wsdl:output message="tns:SendLocationSms3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text message to Cellcom subscriber.</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsSoapIn" />
+      <wsdl:output message="tns:SendSmsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text or binary sms or wap push service indication with optional delivery receipt notification</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsExSoapIn" />
+      <wsdl:output message="tns:SendSmsExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsExRB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text or binary sms or wap push service indication with optional delivery receipt notification</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsExRBSoapIn" />
+      <wsdl:output message="tns:SendSmsExRBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send SMS with full parameters control</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsPipeSoapIn" />
+      <wsdl:output message="tns:SendSmsPipeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipeRB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send SMS reverse bliiling with full parameters control</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsPipeRBSoapIn" />
+      <wsdl:output message="tns:SendSmsPipeRBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRoutingUri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set delivery receipt notification routing uri ( http:// or mailto: )</wsdl:documentation>
+      <wsdl:input message="tns:SetRoutingUriSoapIn" />
+      <wsdl:output message="tns:SetRoutingUriSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SmsGate2HttpGet">
+    <wsdl:operation name="WapPush">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send wap url using wap push. Use description to send push service indication or empty description to send push service load.</wsdl:documentation>
+      <wsdl:input message="tns:WapPushHttpGetIn" />
+      <wsdl:output message="tns:WapPushHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsConcatenated">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text message to Cellcom subscriber.</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsConcatenatedHttpGetIn" />
+      <wsdl:output message="tns:SendSmsConcatenatedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send type 0 silent SMS to page a subscriber, short message</wsdl:documentation>
+      <wsdl:input message="tns:SendLocationSmsHttpGetIn" />
+      <wsdl:output message="tns:SendLocationSmsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send type 0 silent SMS to page a subscriber, long message</wsdl:documentation>
+      <wsdl:input message="tns:SendLocationSms2HttpGetIn" />
+      <wsdl:output message="tns:SendLocationSms2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send type 0 silent SMS to page a subscriber, short message, with validity and DR</wsdl:documentation>
+      <wsdl:input message="tns:SendLocationSms3HttpGetIn" />
+      <wsdl:output message="tns:SendLocationSms3HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text message to Cellcom subscriber.</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsHttpGetIn" />
+      <wsdl:output message="tns:SendSmsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text or binary sms or wap push service indication with optional delivery receipt notification</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsExHttpGetIn" />
+      <wsdl:output message="tns:SendSmsExHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsExRB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text or binary sms or wap push service indication with optional delivery receipt notification</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsExRBHttpGetIn" />
+      <wsdl:output message="tns:SendSmsExRBHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send SMS with full parameters control</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsPipeHttpGetIn" />
+      <wsdl:output message="tns:SendSmsPipeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipeRB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send SMS reverse bliiling with full parameters control</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsPipeRBHttpGetIn" />
+      <wsdl:output message="tns:SendSmsPipeRBHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRoutingUri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set delivery receipt notification routing uri ( http:// or mailto: )</wsdl:documentation>
+      <wsdl:input message="tns:SetRoutingUriHttpGetIn" />
+      <wsdl:output message="tns:SetRoutingUriHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SmsGate2HttpPost">
+    <wsdl:operation name="WapPush">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send wap url using wap push. Use description to send push service indication or empty description to send push service load.</wsdl:documentation>
+      <wsdl:input message="tns:WapPushHttpPostIn" />
+      <wsdl:output message="tns:WapPushHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsConcatenated">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text message to Cellcom subscriber.</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsConcatenatedHttpPostIn" />
+      <wsdl:output message="tns:SendSmsConcatenatedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send type 0 silent SMS to page a subscriber, short message</wsdl:documentation>
+      <wsdl:input message="tns:SendLocationSmsHttpPostIn" />
+      <wsdl:output message="tns:SendLocationSmsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send type 0 silent SMS to page a subscriber, long message</wsdl:documentation>
+      <wsdl:input message="tns:SendLocationSms2HttpPostIn" />
+      <wsdl:output message="tns:SendLocationSms2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send type 0 silent SMS to page a subscriber, short message, with validity and DR</wsdl:documentation>
+      <wsdl:input message="tns:SendLocationSms3HttpPostIn" />
+      <wsdl:output message="tns:SendLocationSms3HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text message to Cellcom subscriber.</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsHttpPostIn" />
+      <wsdl:output message="tns:SendSmsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text or binary sms or wap push service indication with optional delivery receipt notification</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsExHttpPostIn" />
+      <wsdl:output message="tns:SendSmsExHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsExRB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send text or binary sms or wap push service indication with optional delivery receipt notification</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsExRBHttpPostIn" />
+      <wsdl:output message="tns:SendSmsExRBHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send SMS with full parameters control</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsPipeHttpPostIn" />
+      <wsdl:output message="tns:SendSmsPipeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipeRB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send SMS reverse bliiling with full parameters control</wsdl:documentation>
+      <wsdl:input message="tns:SendSmsPipeRBHttpPostIn" />
+      <wsdl:output message="tns:SendSmsPipeRBHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRoutingUri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set delivery receipt notification routing uri ( http:// or mailto: )</wsdl:documentation>
+      <wsdl:input message="tns:SetRoutingUriHttpPostIn" />
+      <wsdl:output message="tns:SetRoutingUriHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SmsGate2Soap" type="tns:SmsGate2Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WapPush">
+      <soap:operation soapAction="http://sms.cellcom.co.il/smsgate/WapPush" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsConcatenated">
+      <soap:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSmsConcatenated" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms">
+      <soap:operation soapAction="http://sms.cellcom.co.il/smsgate/SendLocationSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms2">
+      <soap:operation soapAction="http://sms.cellcom.co.il/smsgate/SendLocationSms2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms3">
+      <soap:operation soapAction="http://sms.cellcom.co.il/smsgate/SendLocationSms3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <soap:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsEx">
+      <soap:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSmsEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsExRB">
+      <soap:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSmsExRB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipe">
+      <soap:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSmsPipe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipeRB">
+      <soap:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSmsPipeRB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRoutingUri">
+      <soap:operation soapAction="http://sms.cellcom.co.il/smsgate/SetRoutingUri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmsGate2Soap12" type="tns:SmsGate2Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WapPush">
+      <soap12:operation soapAction="http://sms.cellcom.co.il/smsgate/WapPush" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsConcatenated">
+      <soap12:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSmsConcatenated" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms">
+      <soap12:operation soapAction="http://sms.cellcom.co.il/smsgate/SendLocationSms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms2">
+      <soap12:operation soapAction="http://sms.cellcom.co.il/smsgate/SendLocationSms2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms3">
+      <soap12:operation soapAction="http://sms.cellcom.co.il/smsgate/SendLocationSms3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <soap12:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsEx">
+      <soap12:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSmsEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsExRB">
+      <soap12:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSmsExRB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipe">
+      <soap12:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSmsPipe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipeRB">
+      <soap12:operation soapAction="http://sms.cellcom.co.il/smsgate/SendSmsPipeRB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRoutingUri">
+      <soap12:operation soapAction="http://sms.cellcom.co.il/smsgate/SetRoutingUri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmsGate2HttpGet" type="tns:SmsGate2HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="WapPush">
+      <http:operation location="/WapPush" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsConcatenated">
+      <http:operation location="/SendSmsConcatenated" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms">
+      <http:operation location="/SendLocationSms" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms2">
+      <http:operation location="/SendLocationSms2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms3">
+      <http:operation location="/SendLocationSms3" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <http:operation location="/SendSms" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsEx">
+      <http:operation location="/SendSmsEx" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsExRB">
+      <http:operation location="/SendSmsExRB" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipe">
+      <http:operation location="/SendSmsPipe" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipeRB">
+      <http:operation location="/SendSmsPipeRB" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRoutingUri">
+      <http:operation location="/SetRoutingUri" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmsGate2HttpPost" type="tns:SmsGate2HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="WapPush">
+      <http:operation location="/WapPush" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsConcatenated">
+      <http:operation location="/SendSmsConcatenated" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms">
+      <http:operation location="/SendLocationSms" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms2">
+      <http:operation location="/SendLocationSms2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationSms3">
+      <http:operation location="/SendLocationSms3" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <http:operation location="/SendSms" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsEx">
+      <http:operation location="/SendSmsEx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsExRB">
+      <http:operation location="/SendSmsExRB" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipe">
+      <http:operation location="/SendSmsPipe" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsPipeRB">
+      <http:operation location="/SendSmsPipeRB" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRoutingUri">
+      <http:operation location="/SetRoutingUri" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SmsGate2">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cellcom SMS Gateway Interface 2</wsdl:documentation>
+    <wsdl:port name="SmsGate2Soap" binding="tns:SmsGate2Soap">
+      <soap:address location="https://smsdirect.cellcom.co.il/smsgate/smsgate2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmsGate2Soap12" binding="tns:SmsGate2Soap12">
+      <soap12:address location="https://smsdirect.cellcom.co.il/smsgate/smsgate2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmsGate2HttpGet" binding="tns:SmsGate2HttpGet">
+      <http:address location="https://smsdirect.cellcom.co.il/smsgate/smsgate2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmsGate2HttpPost" binding="tns:SmsGate2HttpPost">
+      <http:address location="https://smsdirect.cellcom.co.il/smsgate/smsgate2.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

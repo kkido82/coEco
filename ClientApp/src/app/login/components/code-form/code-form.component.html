@@ -1,0 +1,23 @@
+<form [formGroup]="form" class="loginForm loginForm--success">
+  <div class="loginForm__mainTitle" appText="login_step2_title"></div>
+
+  <div class="loginForm__subTitle" appText="login_step2_subtitle"></div>
+
+  <div class="loginForm__inputWrapper">
+    <input
+      type="tel"
+      [placeholder]="placeholder"
+      class="loginForm__input"
+      formControlName="code"
+    />
+    <div class="validationError" [class.show]="formSubmitted && form.controls.code.invalid">{{ getErrorMessage() }}</div>
+  </div>
+
+  <div class="loginForm__btnWrap">
+    <button type="button" class="loginForm__submit" (click)="submit()">אישור</button>
+    <button type="button" class="loginForm__sendAgain" (click)="sendTzAgain.emit()">שלח לי קוד חדש</button>
+    <div class="loginForm__sentAgain" [class.show]="showSentAgainMsg">{{ sentAgainMsg }}</div>
+  </div>
+
+
+</form>

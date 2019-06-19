@@ -1,0 +1,15 @@
+
+
+<nav class="mainNav">
+  <ul class="mainNav__list">
+    <li class="mainNav__item">
+        <a routerLink="/orders/from" class="mainNav__link" (click)="setActiveLink(1)" [class.active]="activeLink === 1" appText="search_items"> </a> 
+    </li>
+    <li class="mainNav__item">
+        <a routerLink="/orders/to" class="mainNav__link" (click)="setActiveLink(2)" [class.active]="activeLink === 2" appText="lended_items"> </a> 
+    </li>
+    <li class="mainNav__item">
+        <a routerLink="/items" class="mainNav__link" (click)="setActiveLink(3)" [class.active]="activeLink === 3" appText="manage_items"> </a>
+    </li>
+  </ul>
+</nav>

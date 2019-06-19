@@ -1,0 +1,71 @@
+.starRating {
+    display: flex;
+    // flex-direction: row-reverse;
+    width: 175px;
+    justify-content: space-between;
+
+    svg {
+        width: 1.5em;
+        height: 1.5em;
+        fill: currentColor;
+        stroke: #272324;
+        stroke-width: 15px;
+        // margin-left: 10px;
+    }
+
+    label,
+    output {
+        font-size: 2em;
+        height: 100%;
+        float: left;
+        color: $colorWhite;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+    }
+
+    output {
+        font-size: 1.5em;
+        padding: 0 1em;
+    }
+
+    input:checked~label {
+        color: $colorYellow;
+        // color: #999;
+    }
+
+    input:checked+label {
+        color: $colorWhite;
+        color: $colorYellow;
+    }
+
+
+    // .star_rating:hover input+label {
+    //     color: $colorYellow;
+    // }
+
+    // input:hover~label {
+    //     color: $colorYellow;
+    // }
+
+    // input:hover+label {
+    //     color: $colorYellow;
+    // }
+
+    [type="submit"] {
+        float: none;
+    }
+
+    label {
+        position: relative;
+
+        .counter {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translate(-50%);
+            font: 1rem $assistantRegular;
+            color: $colorBlack;
+        }
+    }
+}

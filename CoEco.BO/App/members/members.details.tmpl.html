@@ -1,0 +1,55 @@
+﻿<div><!--ng-show="vm.canEdit"-->
+    <errors-alert errors="vm.errors"></errors-alert>
+    <div class="row">
+        <div class="form-group col-sm-12">        
+            <button type="button" class="btn btn-app btn-bitbucket 'btn-success' pull-left owr" ng-click="vm.save()"><i class="fa fa-save"></i>שמור </button>
+            <a class="btn btn-app btn-bitbucket pull-left" ui-sref="members.list">
+                <i class="fa fa-arrow-right"></i>
+                חזרה
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">תעודת זהות:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.TZ" ng-disabled="{{vm.isNewMember == false}}"/>
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">שם פרטי:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.FirstName" ng-disabled="{{vm.isNewMember == false}}"/>
+        </div> 
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">שם משפחה:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.LastName" ng-disabled="{{vm.isNewMember == false}}" />
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">אימייל:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.Email">
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">מספר טלפון:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.PhoneNumber" ng-pattern="/^[0-9]+(?:\-[0-9]+)?$/"/>
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">תיאור תפקיד:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.Role" />
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">יחידה:</label>
+            <select class="col-sm-8 form-control" placeholder="יחידה" ng-model="vm.entity.UnitID" entities-dropdown="Units" value-field="ID" text-field="UnitName"
+                    service-name="dataService"></select>
+
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">פרופיל הרשאות:</label>
+            <select class="col-sm-8 form-control" placeholder="פרופיל הרשאות" ng-model="vm.entity.PermissionsProfileID" entities-dropdown="PermissionsProfiles" value-field="ID" text-field="Name"
+                    service-name="dataService"></select>
+
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">חסום:</label>
+            <input type="checkbox" ng-model="vm.entity.Disable" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="37f3b067-1329-4c80-88f4-fba7551c60c3" ChangeDateTime="03/07/2019 12:52:25">
+    <Property Name="ElementName" Value="[dbo].[SYS_TBL_Members].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SYS_TBL_Members]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TZ" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f63265e2-5ba6-45ce-a872-9c9a3f8c082b" ChangeDateTime="03/14/2019 13:40:05">
+    <Property Name="ElementName" Value="[dbo].[SYS_TBL_Members].[TZ]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SYS_TBL_Members]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d2e9aebd-916f-43a3-8897-3c7cdc8d1d10" ChangeDateTime="03/18/2019 13:48:53">
+    <Property Name="ElementName" Value="[dbo].[SYS_TBL_LendingItem].[RatingBorrowUnit]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SYS_TBL_LendingItem]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RatingRequestUnit" />
+  </Operation>
+</Operations>

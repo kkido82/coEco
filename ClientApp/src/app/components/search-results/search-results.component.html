@@ -1,0 +1,8 @@
+<ul class="itemsList">
+  <li class="itemsList__item" *ngFor="let item of items">
+    <app-search-result-item
+      [data]="item"
+      (select)="select.emit($event)"
+    ></app-search-result-item>
+  </li>
+</ul>

@@ -1,0 +1,23 @@
+<form [formGroup]="form" class="loginForm">
+  <div class="loginForm__logoWrapper">
+    <img src="assets/imgs/logo.png" class="loginForm__img" alt="" />
+  </div>
+
+  <div class="loginForm__title" appText="login_step1_title"></div>
+
+  <div class="loginForm__inputWrapper">
+    <input
+      type="tel"
+      placeholder="הקלידו כאן מס' ת.ז"
+      class="loginForm__input"
+      formControlName="tz"
+    />
+    <div class="validationError" [class.show]="formSubmitted && form.controls.tz.invalid">{{ getErrorMessage() }}</div>
+  </div>
+
+  <div class="loginForm__btnWrap">
+    <button type="button" class="loginForm__submit" (click)="doSubmit()" appText="accept_otp"></button>
+  </div>
+
+
+</form>

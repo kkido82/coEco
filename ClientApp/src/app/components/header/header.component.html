@@ -1,0 +1,44 @@
+<header class="header" *ngIf="badgesCount">
+
+  <div class="logo">
+    <img src="assets/imgs/logo.png"
+      alt=""
+      class="logo__img">
+  </div>
+
+  <div class="header__icons">
+    <a href="javascript:;" class="header__iconWrapper" (click)="showBalanceInfo()">
+        <div class="header__badge">{{ badgesCount.fixes }}</div>      
+      <img src="assets/imgs/coinicon.png"
+        class="header__icon"
+        alt="">
+    </a>
+    <a href="javascript:;" class="header__iconWrapper" (click)="toggleMessages()">
+      <div class="header__badge" [class.changeBorderRadius]="badgesCount.messages < 10">{{ badgesCount.messages }}</div>
+      <img src="assets/imgs/envelopeicon.png"
+        class="header__icon"
+        alt="">
+    </a>
+    <a href="javascript:;" class="header__iconWrapper" (click)="disconnect()">
+      <img src="assets/imgs/disconnecticon.png"
+        class="header__icon"
+        alt="">
+    </a>
+  </div>
+  <app-balance-info 
+        class="SideInfoPage" 
+        [class.SideInfoPage__show]="showBalance"
+        (setBadgeCount)="setBalanceCount($event)"
+        (close)="showBalanceInfo()"
+        >
+  </app-balance-info>
+
+  <app-messages
+        class="SideInfoPage" 
+        [class.SideInfoPage__show]="showMessages"
+        (setMessagesCount)="setMsgCount($event)"
+        (closeMessages)="toggleMessages()"
+        >
+</app-messages>
+
+</header>

@@ -1,0 +1,31 @@
+﻿<h2>הרשאות ל {{vm.editedUser.firstName}}</h2>
+<table class="table table-condensed table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>מודול</th>
+            <th>ללא</th>
+            <th>קריאה</th>
+            <th>קריאה וכתיבה</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="(key,value) in vm.permissions">
+        <td><strong>{{key}}</strong></td>
+        <td style="width: 2rem">
+            <input type="radio" ng-checked="value===0" ng-click="vm.permissions[key]=0" />
+        </td>
+        <td style="width: 2rem">
+            <input type="radio" ng-checked="value===1" ng-click="vm.permissions[key]=1" />
+        </td>
+       
+        <td style="width: 2rem">
+            <input type="radio" ng-checked="value===2" ng-click="vm.permissions[key]=2" />
+        </td>
+      
+    </tr>
+    </tbody>
+</table>
+
+<hr />
+<button type="button" class="btn btn-primary" ng-click="vm.savePermissions()">שמור </button>
+<button type="button" class="btn btn-warning" ng-click="vm.resetPermissions()">אפס </button>

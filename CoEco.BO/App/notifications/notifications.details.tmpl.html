@@ -1,0 +1,31 @@
+﻿<div><!--ng-show="vm.canEdit"-->
+    <errors-alert errors="vm.errors"></errors-alert>
+    <div class="row">
+        <div class="form-group col-sm-12">        
+            <button type="button" class="btn btn-app btn-bitbucket 'btn-success' pull-left owr" ng-click="vm.save()"><i class="fa fa-save"></i>שמור </button>
+            <a class="btn btn-app btn-bitbucket pull-left" ui-sref="notifications.list">
+                <i class="fa fa-arrow-right"></i>
+                חזרה
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">שם הודעה:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.NotificationName" ng-maxlength="100"/>
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">תוכן הודעה:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.Content" ng-maxlength="100"/>
+        </div> 
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">לשליחת המסרון:</label>
+            <input type="checkbox" ng-model="vm.entity.ToBeSent" />
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">חסום:</label>
+            <input type="checkbox" ng-model="vm.entity.Disable" />
+        </div>
+    </div>
+</div>

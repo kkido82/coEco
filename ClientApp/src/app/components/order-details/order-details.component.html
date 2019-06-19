@@ -1,0 +1,100 @@
+<div *ngIf="showDetails && false">
+  <button class="xIcon xIcon--noTransform" (click)="closeDetails()"></button>
+  <div>
+    <div class="orderDetails__title" [innerHtml]="orderName(details.id)"></div>
+    <div class="orderDetails__date">
+      {{ details.orderDate | amDateFormat: 'DD.MM.YY' }}
+    </div>
+  </div>
+
+  <div class="orderDetails__fields">
+    <div class="orderDetails__field">
+      <div class="orderDetails__label" appText="item"></div>
+      <div class="orderDetails__fieldText">{{ details.itemName }}</div>
+    </div>
+    <div class="orderDetails__field">
+      <div class="orderDetails__label" appText="providing_unit"></div>
+      <div class="orderDetails__fieldText">{{ details.fromUnit }}</div>
+    </div>
+    <div class="orderDetails__twoFields">
+      <div class="orderDetails__field orderDetails__field--halfWidth">
+        <div class="orderDetails__fieldWrapper">
+          <div class="orderDetails__label" appText="cost"></div>
+          <div class="orderDetails__fieldText">{{ details.cost }}</div>
+        </div>
+      </div>
+      <div class="orderDetails__field orderDetails__field--halfWidth">
+        <div class="orderDetails__fieldWrapper">
+          <div class="orderDetails__label" appText="distance"></div>
+          <div class="orderDetails__fieldText">{{ details.distance }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="orderDetails__label orderDetails__label--bold"
+      appText="contact_info"
+    ></div>
+    <div class="orderDetails__twoFields">
+      <div class="orderDetails__field orderDetails__field--halfWidth">
+        <div class="orderDetails__fieldWrapper">
+          <div class="orderDetails__label" appText="name"></div>
+          <div class="orderDetails__fieldText">
+            {{ details.contactPersonName }}
+          </div>
+        </div>
+      </div>
+      <div class="orderDetails__field orderDetails__field--halfWidth">
+        <div class="orderDetails__fieldWrapper">
+          <div class="orderDetails__label" appText="phone"></div>
+          <div class="orderDetails__fieldText orderDetails__fieldText--phone">
+            {{ details.contactPersonPhone }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orderDetails__field">
+      <div class="orderDetails__label" appText="item_description"></div>
+      <div class="orderDetails__fieldText">{{ details.itemDescription }}</div>
+    </div>
+    <form class="orderDetails__field orderDetails__form" [formGroup]="form">
+      <div class="orderDetails__label" appText="order_notes"></div>
+      <textarea
+        class="orderDetails__fieldText orderDetails__fieldText--textArea"
+        formControlName="remarks"
+      ></textarea>
+      <div>
+        <div class="statusWrapper">
+          <div class="statusWrapper__label" appText="order_status"></div>
+          <div class="readOnlyItem__status">
+            <app-status-circle [status]="details.statusId"></app-status-circle>
+            {{ details.statusName }}
+          </div>
+        </div>
+      </div>
+      <div [class.twoButtons]="btns.length > 1">
+        <div *ngFor="let btn of btns" class="twoButtons__btnWrapper">
+          <button
+            type="button"
+            class="btn {{ btn.className }}"
+            (click)="send(btn.action)"
+            [appText]="btn.appText"
+          ></button>
+        </div>
+      </div>
+      <a
+        href="javascript:;"
+        (click)="showProblemReport()"
+        class="reportItemLink"
+        *ngIf="!isNewOrder"
+        appText="has_problem"
+      ></a>
+    </form>
+  </div>
+</div>
+<app-problem-report
+  *ngIf="!showDetails && false"
+  (close)="hideProblemReport()"
+  [order]="details"
+></app-problem-report>
+<app-rate-item (close)="closeRating()"></app-rate-item>

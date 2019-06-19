@@ -1,0 +1,61 @@
+﻿<errors-alert errors="vm.errors"></errors-alert>
+
+<hr ng-if="vm.errors.length" />
+<uib-tabset active="active" type="pills">
+    
+    <uib-tab index="0" heading="פרטים אישיים">
+        <user-details edited-user="vm.editedUser" onsave="vm.save()" is-new="vm.isNew" onreset="vm.reset()"></user-details>
+    </uib-tab>
+
+    <uib-tab heading="סיסמה" index="1" ng-if="!vm.isNew">
+        <user-password-reset onreset="vm.resetPassword(value)"></user-password-reset>
+    </uib-tab>
+
+    <uib-tab heading="הרשאות" ng-if="!vm.isNew">
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <button type="button" class="btn btn-app btn-github" ng-click="vm.savePermissions()"><i class="fa fa-save"></i> שמור</button>
+                <button type="button" class="btn btn-app btn-dropbox" ng-click="vm.resetPermissions()"><i class="fa fa-undo"></i> אפס</button>
+                <a class="btn btn-app btn-bitbucket pull-left" ui-sref="usersAdmin">
+                    <i class="fa fa-arrow-right"></i>
+                    חזרה
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <table class="table table-condensed table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>מודול</th>
+                        <th>ללא</th>
+                        <th>קריאה</th>
+                        <th>קריאה וכתיבה</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="(key,value) in vm.permissions">
+                        <td><strong>{{value}}</strong></td>
+                        <td style="width: 15%">
+                            <input type="radio" ng-checked="vm.roles[key]===0" ng-click="vm.roles[key]=0"/>
+                        </td>
+                        <td style="width: 15%">
+                            <input type="radio" ng-checked="vm.roles[key]===1" ng-click="vm.roles[key]=1" />
+                        </td>
+                        <td style="width: 15%">
+                            <input type="radio" ng-checked="vm.roles[key]===2" ng-click="vm.roles[key]=2"/>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr/>
+
+    </uib-tab>
+</uib-tabset>
+
+
+
+

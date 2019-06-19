@@ -1,0 +1,12 @@
+﻿body {
+    font-family: Arial;
+    direction: rtl;
+}
+
+input[type=checkbox], input-group, select, button, .btn, .print-remove, .input-group {
+    display: none !important;
+}
+
+.centered {
+    text-align: center;
+}

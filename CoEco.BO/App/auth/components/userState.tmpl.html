@@ -1,0 +1,48 @@
+﻿<div class="navbar-custom-menu" ng-if="vm.authStatus && vm.authStatus.isAuth">
+    <ul class="nav navbar-nav">
+
+
+        <!-- User Account: style can be found in dropdown.less -->
+        <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+
+                <span class="hidden-xs">{{vm.authStatus.userData.firstName}} {{vm.authStatus.userData.lastName}}</span>
+                <img src="Imgs\loginBtn.jpg" class="img-circle" gravatar-size="28" />
+                <!--<i class="fa fa-2x fa-user"></i>-->
+            </a>
+            <ul class="dropdown-menu">
+                <!-- User image -->
+                <li class="user-header">
+                    <img src="Imgs\loginBtn.jpg"  gravatar-size="90" class="img-circle" />
+
+
+                    <p>
+                        {{vm.authStatus.userData.firstName}} {{vm.authStatus.userData.lastName}} <br />
+                        <a style="color: white" class="btn btn-link" href="" ng-click="vm.signout()">התנתק</a>
+
+
+                    </p>
+
+                </li>
+                <!-- Menu Body -->
+                <li class="user-body">
+
+
+                </li>
+
+            </ul>
+        </li>
+        <!-- Control Sidebar Toggle Button -->
+
+    </ul>
+</div>
+
+<!--<div class="user-panel">
+    <div class="pull-right image">
+        <img gravatar-src="vm.authStatus.userData.emailAddress" size="160" class="img-circle" alt="User Image">
+    </div>
+    <div class="pull-left info">
+        <p>{{vm.authStatus.userData.firstName}} {{ vm.authStatus.userData.lastName}}</p>
+        <a ng-click="vm.signout()"><i class="fa fa-circle text-success"></i> מחובר</a>
+    </div>
+</div>-->

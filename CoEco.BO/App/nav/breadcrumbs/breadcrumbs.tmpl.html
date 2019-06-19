@@ -1,0 +1,7 @@
+﻿<ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> בית</a></li>
+    <li ng-repeat="item in vm.bc">
+        <a ng-if="!$last && !item.isAbstract" ui-sref="{{item.name}}">{{item.title}}</a>
+        <span ng-if="$last">{{item.title}}</span>
+    </li>
+</ol>

@@ -1,0 +1,1632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CoEcoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="ShouldBeSignedOut" Type="bit" Nullable="false" />
+          <Property Name="AccountExpiresAt" Type="datetime" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_DistanceUnit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstUnitID" Type="int" Nullable="false" />
+          <Property Name="SecondUnitID" Type="int" Nullable="false" />
+          <Property Name="Distance" Type="float" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_Item">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Cost" Type="int" Nullable="false" />
+          <Property Name="IconStoreID" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_ItemToUnit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="UnitID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_LendingItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="UnitRequestsID" Type="int" Nullable="false" />
+          <Property Name="UnitLendingID" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="1000" />
+          <Property Name="OrderStatusID" Type="int" Nullable="false" />
+          <Property Name="RatingLendingUnit" Type="float" />
+          <Property Name="RatingRequestUnit" Type="float" />
+          <Property Name="ProblemDescriptionLendingUnit" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ProblemDescriptionRequestUnit" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_Log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TZ" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LogType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_Members">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TZ" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="1000" />
+          <Property Name="UnitID" Type="int" Nullable="false" />
+          <Property Name="PermissionsProfileID" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_MembersFileError">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TZ" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FilesUploadName" Type="nvarchar(max)" />
+          <Property Name="ErrorMsg" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SentDate" Type="datetime" />
+          <Property Name="Content" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="OpeningDate" Type="datetime2" Precision="7" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_Notification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NotificationName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="LastSentDate" Type="datetime2" Precision="7" />
+          <Property Name="ToBeSent" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_OrderStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_PermissionsProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="OpenAnOrder" Type="bit" Nullable="false" />
+          <Property Name="UpdateInventory" Type="bit" Nullable="false" />
+          <Property Name="OrderConfirmation" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_RatingQuestion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionText" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_Unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="OriginalWheelsQuantity" Type="int" Nullable="false" />
+          <Property Name="CurrentWheelQuantity" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="float" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_TBL_VAL_IconStore">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IDF_CoEco_V2.dbo.OrderDataReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="OrderDataReport">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Cost" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="OrderDate" />
+            <PropertyRef Name="StatusName" />
+            <PropertyRef Name="StatusID" />
+            <PropertyRef Name="Distance" />
+            <PropertyRef Name="UnitRequestsID" />
+            <PropertyRef Name="UnitLendingID" />
+            <PropertyRef Name="UpdatedOn" />
+            <PropertyRef Name="UpdatedBy" />
+            <PropertyRef Name="CreatedOn" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="Disable" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Cost" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="StatusName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="RatingRequestUnit" Type="float" />
+          <Property Name="RatingLendingUnit" Type="float" />
+          <Property Name="Distance" Type="float" Nullable="false" />
+          <Property Name="ProblemDescriptionRequestUnit" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ProblemDescriptionLendingUnit" Type="nvarchar" MaxLength="1000" />
+          <Property Name="RequestingUnitCurrentWheelQuantity" Type="int" />
+          <Property Name="RequestingUnitName" Type="nvarchar" MaxLength="500" />
+          <Property Name="LendingUnitCurrentWheelQuantity" Type="int" />
+          <Property Name="LendingUnitName" Type="nvarchar" MaxLength="500" />
+          <Property Name="UnitRequestsID" Type="int" Nullable="false" />
+          <Property Name="UnitLendingID" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Item_SYS_TBL_VAL_FirstUnit">
+          <End Role="SYS_TBL_Unit" Type="Self.SYS_TBL_Unit" Multiplicity="1" />
+          <End Role="SYS_TBL_DistanceUnit" Type="Self.SYS_TBL_DistanceUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_DistanceUnit">
+              <PropertyRef Name="FirstUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Item_SYS_TBL_VAL_IconStore">
+          <End Role="SYS_TBL_VAL_IconStore" Type="Self.SYS_TBL_VAL_IconStore" Multiplicity="1" />
+          <End Role="SYS_TBL_Item" Type="Self.SYS_TBL_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_VAL_IconStore">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_Item">
+              <PropertyRef Name="IconStoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Item_SYS_TBL_VAL_SecondUnit">
+          <End Role="SYS_TBL_Unit" Type="Self.SYS_TBL_Unit" Multiplicity="1" />
+          <End Role="SYS_TBL_DistanceUnit" Type="Self.SYS_TBL_DistanceUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_DistanceUnit">
+              <PropertyRef Name="FirstUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_ItemToUnit_SYS_TBL_Item">
+          <End Role="SYS_TBL_Item" Type="Self.SYS_TBL_Item" Multiplicity="1" />
+          <End Role="SYS_TBL_ItemToUnit" Type="Self.SYS_TBL_ItemToUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Item">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_ItemToUnit">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_ItemToUnit_SYS_TBL_Unit">
+          <End Role="SYS_TBL_Unit" Type="Self.SYS_TBL_Unit" Multiplicity="1" />
+          <End Role="SYS_TBL_ItemToUnit" Type="Self.SYS_TBL_ItemToUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_ItemToUnit">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_LendingItem_SYS_TBL_Item">
+          <End Role="SYS_TBL_Item" Type="Self.SYS_TBL_Item" Multiplicity="1" />
+          <End Role="SYS_TBL_LendingItem" Type="Self.SYS_TBL_LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Item">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_LendingItem_SYS_TBL_Members">
+          <End Role="SYS_TBL_Members" Type="Self.SYS_TBL_Members" Multiplicity="1" />
+          <End Role="SYS_TBL_LendingItem" Type="Self.SYS_TBL_LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_LendingItem_SYS_TBL_OrderStatus">
+          <End Role="SYS_TBL_OrderStatus" Type="Self.SYS_TBL_OrderStatus" Multiplicity="1" />
+          <End Role="SYS_TBL_LendingItem" Type="Self.SYS_TBL_LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_OrderStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="OrderStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_LendingItem_SYS_TBL_Unit">
+          <End Role="SYS_TBL_Unit" Type="Self.SYS_TBL_Unit" Multiplicity="1" />
+          <End Role="SYS_TBL_LendingItem" Type="Self.SYS_TBL_LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="UnitRequestsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_LendingItem_SYS_TBL_UnitLeading">
+          <End Role="SYS_TBL_Unit" Type="Self.SYS_TBL_Unit" Multiplicity="1" />
+          <End Role="SYS_TBL_LendingItem" Type="Self.SYS_TBL_LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="UnitLendingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Members_SYS_TBL_PermissionsProfileID">
+          <End Role="SYS_TBL_PermissionsProfile" Type="Self.SYS_TBL_PermissionsProfile" Multiplicity="1" />
+          <End Role="SYS_TBL_Members" Type="Self.SYS_TBL_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_PermissionsProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_Members">
+              <PropertyRef Name="PermissionsProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Members_SYS_TBL_Unit">
+          <End Role="SYS_TBL_Unit" Type="Self.SYS_TBL_Unit" Multiplicity="1" />
+          <End Role="SYS_TBL_Members" Type="Self.SYS_TBL_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_Members">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Message_SYS_TBL_LendingItem">
+          <End Role="SYS_TBL_LendingItem" Type="Self.SYS_TBL_LendingItem" Multiplicity="1" />
+          <End Role="SYS_TBL_Message" Type="Self.SYS_TBL_Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_Message">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Message_SYS_TBL_Members">
+          <End Role="SYS_TBL_Members" Type="Self.SYS_TBL_Members" Multiplicity="1" />
+          <End Role="SYS_TBL_Message" Type="Self.SYS_TBL_Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_Message">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CoEcoModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_DistanceUnit" EntityType="Self.SYS_TBL_DistanceUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_Item" EntityType="Self.SYS_TBL_Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_ItemToUnit" EntityType="Self.SYS_TBL_ItemToUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_LendingItem" EntityType="Self.SYS_TBL_LendingItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_Log" EntityType="Self.SYS_TBL_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_Members" EntityType="Self.SYS_TBL_Members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_MembersFileError" EntityType="Self.SYS_TBL_MembersFileError" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_Message" EntityType="Self.SYS_TBL_Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_Notification" EntityType="Self.SYS_TBL_Notification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_OrderStatus" EntityType="Self.SYS_TBL_OrderStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_PermissionsProfile" EntityType="Self.SYS_TBL_PermissionsProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_RatingQuestion" EntityType="Self.SYS_TBL_RatingQuestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_Unit" EntityType="Self.SYS_TBL_Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYS_TBL_VAL_IconStore" EntityType="Self.SYS_TBL_VAL_IconStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDataReport" EntityType="Self.OrderDataReport" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [OrderDataReport].[Name] AS [Name], 
+    [OrderDataReport].[Cost] AS [Cost], 
+    [OrderDataReport].[FirstName] AS [FirstName], 
+    [OrderDataReport].[LastName] AS [LastName], 
+    [OrderDataReport].[OrderDate] AS [OrderDate], 
+    [OrderDataReport].[StatusName] AS [StatusName], 
+    [OrderDataReport].[StatusID] AS [StatusID], 
+    [OrderDataReport].[RatingRequestUnit] AS [RatingRequestUnit], 
+    [OrderDataReport].[RatingLendingUnit] AS [RatingLendingUnit], 
+    [OrderDataReport].[Distance] AS [Distance], 
+    [OrderDataReport].[ProblemDescriptionRequestUnit] AS [ProblemDescriptionRequestUnit], 
+    [OrderDataReport].[ProblemDescriptionLendingUnit] AS [ProblemDescriptionLendingUnit], 
+    [OrderDataReport].[RequestingUnitCurrentWheelQuantity] AS [RequestingUnitCurrentWheelQuantity], 
+    [OrderDataReport].[RequestingUnitName] AS [RequestingUnitName], 
+    [OrderDataReport].[LendingUnitCurrentWheelQuantity] AS [LendingUnitCurrentWheelQuantity], 
+    [OrderDataReport].[LendingUnitName] AS [LendingUnitName], 
+    [OrderDataReport].[UnitRequestsID] AS [UnitRequestsID], 
+    [OrderDataReport].[UnitLendingID] AS [UnitLendingID], 
+    [OrderDataReport].[UpdatedOn] AS [UpdatedOn], 
+    [OrderDataReport].[UpdatedBy] AS [UpdatedBy], 
+    [OrderDataReport].[CreatedOn] AS [CreatedOn], 
+    [OrderDataReport].[CreatedBy] AS [CreatedBy], 
+    [OrderDataReport].[Disable] AS [Disable]
+    FROM [dbo].[OrderDataReport] AS [OrderDataReport]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Item_SYS_TBL_VAL_FirstUnit" Association="Self.FK_SYS_TBL_Item_SYS_TBL_VAL_FirstUnit">
+            <End Role="SYS_TBL_Unit" EntitySet="SYS_TBL_Unit" />
+            <End Role="SYS_TBL_DistanceUnit" EntitySet="SYS_TBL_DistanceUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Item_SYS_TBL_VAL_IconStore" Association="Self.FK_SYS_TBL_Item_SYS_TBL_VAL_IconStore">
+            <End Role="SYS_TBL_VAL_IconStore" EntitySet="SYS_TBL_VAL_IconStore" />
+            <End Role="SYS_TBL_Item" EntitySet="SYS_TBL_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Item_SYS_TBL_VAL_SecondUnit" Association="Self.FK_SYS_TBL_Item_SYS_TBL_VAL_SecondUnit">
+            <End Role="SYS_TBL_Unit" EntitySet="SYS_TBL_Unit" />
+            <End Role="SYS_TBL_DistanceUnit" EntitySet="SYS_TBL_DistanceUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_ItemToUnit_SYS_TBL_Item" Association="Self.FK_SYS_TBL_ItemToUnit_SYS_TBL_Item">
+            <End Role="SYS_TBL_Item" EntitySet="SYS_TBL_Item" />
+            <End Role="SYS_TBL_ItemToUnit" EntitySet="SYS_TBL_ItemToUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_ItemToUnit_SYS_TBL_Unit" Association="Self.FK_SYS_TBL_ItemToUnit_SYS_TBL_Unit">
+            <End Role="SYS_TBL_Unit" EntitySet="SYS_TBL_Unit" />
+            <End Role="SYS_TBL_ItemToUnit" EntitySet="SYS_TBL_ItemToUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_LendingItem_SYS_TBL_Item" Association="Self.FK_SYS_TBL_LendingItem_SYS_TBL_Item">
+            <End Role="SYS_TBL_Item" EntitySet="SYS_TBL_Item" />
+            <End Role="SYS_TBL_LendingItem" EntitySet="SYS_TBL_LendingItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_LendingItem_SYS_TBL_Members" Association="Self.FK_SYS_TBL_LendingItem_SYS_TBL_Members">
+            <End Role="SYS_TBL_Members" EntitySet="SYS_TBL_Members" />
+            <End Role="SYS_TBL_LendingItem" EntitySet="SYS_TBL_LendingItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_LendingItem_SYS_TBL_OrderStatus" Association="Self.FK_SYS_TBL_LendingItem_SYS_TBL_OrderStatus">
+            <End Role="SYS_TBL_OrderStatus" EntitySet="SYS_TBL_OrderStatus" />
+            <End Role="SYS_TBL_LendingItem" EntitySet="SYS_TBL_LendingItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_LendingItem_SYS_TBL_Unit" Association="Self.FK_SYS_TBL_LendingItem_SYS_TBL_Unit">
+            <End Role="SYS_TBL_Unit" EntitySet="SYS_TBL_Unit" />
+            <End Role="SYS_TBL_LendingItem" EntitySet="SYS_TBL_LendingItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_LendingItem_SYS_TBL_UnitLeading" Association="Self.FK_SYS_TBL_LendingItem_SYS_TBL_UnitLeading">
+            <End Role="SYS_TBL_Unit" EntitySet="SYS_TBL_Unit" />
+            <End Role="SYS_TBL_LendingItem" EntitySet="SYS_TBL_LendingItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Members_SYS_TBL_PermissionsProfileID" Association="Self.FK_SYS_TBL_Members_SYS_TBL_PermissionsProfileID">
+            <End Role="SYS_TBL_PermissionsProfile" EntitySet="SYS_TBL_PermissionsProfile" />
+            <End Role="SYS_TBL_Members" EntitySet="SYS_TBL_Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Members_SYS_TBL_Unit" Association="Self.FK_SYS_TBL_Members_SYS_TBL_Unit">
+            <End Role="SYS_TBL_Unit" EntitySet="SYS_TBL_Unit" />
+            <End Role="SYS_TBL_Members" EntitySet="SYS_TBL_Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Message_SYS_TBL_LendingItem" Association="Self.FK_SYS_TBL_Message_SYS_TBL_LendingItem">
+            <End Role="SYS_TBL_LendingItem" EntitySet="SYS_TBL_LendingItem" />
+            <End Role="SYS_TBL_Message" EntitySet="SYS_TBL_Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Message_SYS_TBL_Members" Association="Self.FK_SYS_TBL_Message_SYS_TBL_Members">
+            <End Role="SYS_TBL_Members" EntitySet="SYS_TBL_Members" />
+            <End Role="SYS_TBL_Message" EntitySet="SYS_TBL_Message" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CoEcoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="ShouldBeSignedOut" Type="Boolean" Nullable="false" />
+          <Property Name="AccountExpiresAt" Type="DateTime" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Cost" Type="Int32" Nullable="false" />
+          <Property Name="IconStoreID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="IconStore" Relationship="Self.FK_SYS_TBL_Item_SYS_TBL_VAL_IconStore" FromRole="SYS_TBL_Item" ToRole="SYS_TBL_VAL_IconStore" />
+          <NavigationProperty Name="ItemToUnit" Relationship="Self.FK_SYS_TBL_ItemToUnit_SYS_TBL_Item" FromRole="SYS_TBL_Item" ToRole="SYS_TBL_ItemToUnit" />
+          <NavigationProperty Name="LendingItem" Relationship="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Item" FromRole="Item" ToRole="SYS_TBL_LendingItem" />
+        </EntityType>
+        <EntityType Name="ItemToUnit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="UnitID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_SYS_TBL_ItemToUnit_SYS_TBL_Item" FromRole="SYS_TBL_ItemToUnit" ToRole="SYS_TBL_Item" />
+          <NavigationProperty Name="Unit" Relationship="Self.FK_SYS_TBL_ItemToUnit_SYS_TBL_Unit" FromRole="SYS_TBL_ItemToUnit" ToRole="SYS_TBL_Unit" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TZ" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LogType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastSentDate" Type="DateTime" Precision="7" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <Property Name="ToBeSent" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="SYS_TBL_LendingItem" Relationship="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_OrderStatus" FromRole="OrderStatus" ToRole="SYS_TBL_LendingItem" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OriginalWheelsQuantity" Type="Int32" Nullable="false" />
+          <Property Name="CurrentWheelQuantity" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Double" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ItemToUnit" Relationship="Self.FK_SYS_TBL_ItemToUnit_SYS_TBL_Unit" FromRole="SYS_TBL_Unit" ToRole="SYS_TBL_ItemToUnit" />
+          <NavigationProperty Name="Members" Relationship="CoEcoModel.FK_SYS_TBL_Members_SYS_TBL_Unit" FromRole="Unit" ToRole="SYS_TBL_Members" />
+          <NavigationProperty Name="FirstDistanceUnit" Relationship="CoEcoModel.FK_SYS_TBL_Item_SYS_TBL_VAL_FirstUnit" FromRole="Unit" ToRole="SYS_TBL_DistanceUnit" />
+          <NavigationProperty Name="SecondDistanceUnit1" Relationship="CoEcoModel.FK_SYS_TBL_Item_SYS_TBL_VAL_SecondUnit" FromRole="Unit" ToRole="SYS_TBL_DistanceUnit" />
+          <NavigationProperty Name="UnitRequest" Relationship="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Unit" FromRole="Unit" ToRole="SYS_TBL_LendingItem" />
+          <NavigationProperty Name="UnitLending" Relationship="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_UnitLeading" FromRole="Unit" ToRole="SYS_TBL_LendingItem" />
+          </EntityType>
+        <EntityType Name="IconStore">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_SYS_TBL_Item_SYS_TBL_VAL_IconStore" FromRole="SYS_TBL_VAL_IconStore" ToRole="SYS_TBL_Item" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Item_SYS_TBL_VAL_IconStore">
+          <End Role="SYS_TBL_VAL_IconStore" Type="CoEcoModel.IconStore" Multiplicity="1" />
+          <End Role="SYS_TBL_Item" Type="CoEcoModel.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_VAL_IconStore">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_Item">
+              <PropertyRef Name="IconStoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_ItemToUnit_SYS_TBL_Item">
+          <End Role="SYS_TBL_Item" Type="CoEcoModel.Item" Multiplicity="1" />
+          <End Role="SYS_TBL_ItemToUnit" Type="CoEcoModel.ItemToUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Item">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_ItemToUnit">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_ItemToUnit_SYS_TBL_Unit">
+          <End Role="SYS_TBL_Unit" Type="CoEcoModel.Unit" Multiplicity="1" />
+          <End Role="SYS_TBL_ItemToUnit" Type="CoEcoModel.ItemToUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_ItemToUnit">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="CoEcoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Items" EntityType="CoEcoModel.Item" />
+          <EntitySet Name="ItemToUnits" EntityType="CoEcoModel.ItemToUnit" />
+          <EntitySet Name="Logs" EntityType="CoEcoModel.Log" />
+          <EntitySet Name="Notifications" EntityType="CoEcoModel.Notification" />
+          <EntitySet Name="OrderStatuses" EntityType="CoEcoModel.OrderStatus" />
+          <EntitySet Name="Units" EntityType="CoEcoModel.Unit" />
+          <EntitySet Name="IconStores" EntityType="CoEcoModel.IconStore" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Item_SYS_TBL_VAL_IconStore" Association="Self.FK_SYS_TBL_Item_SYS_TBL_VAL_IconStore">
+            <End Role="SYS_TBL_VAL_IconStore" EntitySet="IconStores" />
+            <End Role="SYS_TBL_Item" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_ItemToUnit_SYS_TBL_Item" Association="Self.FK_SYS_TBL_ItemToUnit_SYS_TBL_Item">
+            <End Role="SYS_TBL_Item" EntitySet="Items" />
+            <End Role="SYS_TBL_ItemToUnit" EntitySet="ItemToUnits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_ItemToUnit_SYS_TBL_Unit" Association="Self.FK_SYS_TBL_ItemToUnit_SYS_TBL_Unit">
+            <End Role="SYS_TBL_Unit" EntitySet="Units" />
+            <End Role="SYS_TBL_ItemToUnit" EntitySet="ItemToUnits" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="RatingQuestions" EntityType="CoEcoModel.RatingQuestion" />
+          <EntitySet Name="PermissionsProfiles" EntityType="CoEcoModel.PermissionsProfile" />
+          <EntitySet Name="Members" EntityType="CoEcoModel.Member" />
+          <EntitySet Name="Messages" EntityType="CoEcoModel.Message" />
+          <AssociationSet Name="FK_SYS_TBL_Members_SYS_TBL_PermissionsProfileID" Association="CoEcoModel.FK_SYS_TBL_Members_SYS_TBL_PermissionsProfileID">
+            <End Role="PermissionsProfile" EntitySet="PermissionsProfiles" />
+            <End Role="SYS_TBL_Members" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Members_SYS_TBL_Unit" Association="CoEcoModel.FK_SYS_TBL_Members_SYS_TBL_Unit">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="SYS_TBL_Members" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Message_SYS_TBL_Members" Association="CoEcoModel.FK_SYS_TBL_Message_SYS_TBL_Members">
+            <End Role="SYS_TBL_Members" EntitySet="Members" />
+            <End Role="SYS_TBL_Message" EntitySet="Messages" />
+          </AssociationSet>
+          <EntitySet Name="MembersFileErrors" EntityType="CoEcoModel.MembersFileError" />
+          <EntitySet Name="DistanceUnits" EntityType="CoEcoModel.DistanceUnit" />
+          <AssociationSet Name="FK_SYS_TBL_Item_SYS_TBL_VAL_FirstUnit" Association="CoEcoModel.FK_SYS_TBL_Item_SYS_TBL_VAL_FirstUnit">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="SYS_TBL_DistanceUnit" EntitySet="DistanceUnits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Item_SYS_TBL_VAL_SecondUnit" Association="CoEcoModel.FK_SYS_TBL_Item_SYS_TBL_VAL_SecondUnit">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="SYS_TBL_DistanceUnit" EntitySet="DistanceUnits" />
+          </AssociationSet>
+          <EntitySet Name="LendingItems" EntityType="CoEcoModel.LendingItem" />
+          <EntitySet Name="OrderDataReports" EntityType="CoEcoModel.OrderDataReport" />
+          <AssociationSet Name="FK_SYS_TBL_LendingItem_SYS_TBL_Item" Association="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="SYS_TBL_LendingItem" EntitySet="LendingItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_LendingItem_SYS_TBL_Members" Association="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Members">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="SYS_TBL_LendingItem" EntitySet="LendingItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_LendingItem_SYS_TBL_OrderStatus" Association="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_OrderStatus">
+            <End Role="OrderStatus" EntitySet="OrderStatuses" />
+            <End Role="SYS_TBL_LendingItem" EntitySet="LendingItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_LendingItem_SYS_TBL_Unit" Association="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Unit">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="SYS_TBL_LendingItem" EntitySet="LendingItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_LendingItem_SYS_TBL_UnitLeading" Association="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_UnitLeading">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="SYS_TBL_LendingItem" EntitySet="LendingItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_TBL_Message_SYS_TBL_LendingItem" Association="CoEcoModel.FK_SYS_TBL_Message_SYS_TBL_LendingItem">
+            <End Role="SYS_TBL_LendingItem" EntitySet="LendingItems" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="RatingQuestion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionText" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermissionsProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="OpenAnOrder" Type="Boolean" Nullable="false" />
+          <Property Name="UpdateInventory" Type="Boolean" Nullable="false" />
+          <Property Name="OrderConfirmation" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Members" Relationship="CoEcoModel.FK_SYS_TBL_Members_SYS_TBL_PermissionsProfileID" FromRole="PermissionsProfile" ToRole="SYS_TBL_Members" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TZ" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="UnitID" Type="Int32" Nullable="false" />
+          <Property Name="PermissionsProfileID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PermissionsProfile" Relationship="CoEcoModel.FK_SYS_TBL_Members_SYS_TBL_PermissionsProfileID" FromRole="SYS_TBL_Members" ToRole="PermissionsProfile" />
+          <NavigationProperty Name="Unit" Relationship="CoEcoModel.FK_SYS_TBL_Members_SYS_TBL_Unit" FromRole="SYS_TBL_Members" ToRole="Unit" />
+          <NavigationProperty Name="Message" Relationship="CoEcoModel.FK_SYS_TBL_Message_SYS_TBL_Members" FromRole="SYS_TBL_Members" ToRole="SYS_TBL_Message" />
+          <NavigationProperty Name="LendingItem" Relationship="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Members" FromRole="Member" ToRole="SYS_TBL_LendingItem" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SentDate" Type="DateTime" Precision="3" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="OpeningDate" Type="DateTime" Precision="7" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Members" Relationship="CoEcoModel.FK_SYS_TBL_Message_SYS_TBL_Members" FromRole="SYS_TBL_Message" ToRole="SYS_TBL_Members" />
+          <NavigationProperty Name="LendingItem" Relationship="CoEcoModel.FK_SYS_TBL_Message_SYS_TBL_LendingItem" FromRole="Message" ToRole="SYS_TBL_LendingItem" />
+        </EntityType>
+        <Association Name="FK_SYS_TBL_Members_SYS_TBL_PermissionsProfileID">
+          <End Type="CoEcoModel.PermissionsProfile" Role="PermissionsProfile" Multiplicity="1" />
+          <End Type="CoEcoModel.Member" Role="SYS_TBL_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionsProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_Members">
+              <PropertyRef Name="PermissionsProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Members_SYS_TBL_Unit">
+          <End Type="CoEcoModel.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="CoEcoModel.Member" Role="SYS_TBL_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_Members">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Message_SYS_TBL_Members">
+          <End Type="CoEcoModel.Member" Role="SYS_TBL_Members" Multiplicity="1" />
+          <End Type="CoEcoModel.Message" Role="SYS_TBL_Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_Message">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MembersFileError">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TZ" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FilesUploadName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DistanceUnit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstUnitID" Type="Int32" Nullable="false" />
+          <Property Name="SecondUnitID" Type="Int32" Nullable="false" />
+          <Property Name="Distance" Type="Double" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FirstUnit" Relationship="CoEcoModel.FK_SYS_TBL_Item_SYS_TBL_VAL_FirstUnit" FromRole="SYS_TBL_DistanceUnit" ToRole="Unit" />
+          <NavigationProperty Name="SecondUnit" Relationship="CoEcoModel.FK_SYS_TBL_Item_SYS_TBL_VAL_SecondUnit" FromRole="SYS_TBL_DistanceUnit" ToRole="Unit" />
+        </EntityType>
+        <Association Name="FK_SYS_TBL_Item_SYS_TBL_VAL_FirstUnit">
+          <End Type="CoEcoModel.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="CoEcoModel.DistanceUnit" Role="SYS_TBL_DistanceUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_DistanceUnit">
+              <PropertyRef Name="FirstUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Item_SYS_TBL_VAL_SecondUnit">
+          <End Type="CoEcoModel.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="CoEcoModel.DistanceUnit" Role="SYS_TBL_DistanceUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_DistanceUnit">
+              <PropertyRef Name="FirstUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LendingItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="UnitRequestsID" Type="Int32" Nullable="false" />
+          <Property Name="UnitLendingID" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
+          <Property Name="RatingLendingUnit" Type="Double" />
+          <Property Name="RatingRequestUnit" Type="Double" />
+          <Property Name="ProblemDescriptionLendingUnit" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ProblemDescriptionRequestUnit" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Item" FromRole="SYS_TBL_LendingItem" ToRole="Item" />
+          <NavigationProperty Name="Members" Relationship="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Members" FromRole="SYS_TBL_LendingItem" ToRole="Member" />
+          <NavigationProperty Name="OrderStatus" Relationship="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_OrderStatus" FromRole="SYS_TBL_LendingItem" ToRole="OrderStatus" />
+          <NavigationProperty Name="UnitRequest" Relationship="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Unit" FromRole="SYS_TBL_LendingItem" ToRole="Unit" />
+          <NavigationProperty Name="UnitLending" Relationship="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_UnitLeading" FromRole="SYS_TBL_LendingItem" ToRole="Unit" />
+          <NavigationProperty Name="Message" Relationship="CoEcoModel.FK_SYS_TBL_Message_SYS_TBL_LendingItem" FromRole="SYS_TBL_LendingItem" ToRole="Message" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderDataReport">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Cost" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="OrderDate" />
+            <PropertyRef Name="StatusName" />
+            <PropertyRef Name="Distance" />
+            <PropertyRef Name="UnitRequestsID" />
+            <PropertyRef Name="UnitLendingID" />
+            <PropertyRef Name="UpdatedOn" />
+            <PropertyRef Name="UpdatedBy" />
+            <PropertyRef Name="CreatedOn" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="Disable" />
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="StatusName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RatingRequestUnit" Type="Double" />
+          <Property Name="RatingLendingUnit" Type="Double" />
+          <Property Name="Distance" Type="Double" Nullable="false" />
+          <Property Name="ProblemDescriptionRequestUnit" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ProblemDescriptionLendingUnit" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="RequestingUnitCurrentWheelQuantity" Type="Int32" />
+          <Property Name="RequestingUnitName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LendingUnitCurrentWheelQuantity" Type="Int32" />
+          <Property Name="LendingUnitName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UnitRequestsID" Type="Int32" Nullable="false" />
+          <Property Name="UnitLendingID" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_SYS_TBL_LendingItem_SYS_TBL_Item">
+          <End Type="CoEcoModel.Item" Role="Item" Multiplicity="1" />
+          <End Type="CoEcoModel.LendingItem" Role="SYS_TBL_LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_LendingItem_SYS_TBL_Members">
+          <End Type="CoEcoModel.Member" Role="Member" Multiplicity="1" />
+          <End Type="CoEcoModel.LendingItem" Role="SYS_TBL_LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_LendingItem_SYS_TBL_OrderStatus">
+          <End Type="CoEcoModel.OrderStatus" Role="OrderStatus" Multiplicity="1" />
+          <End Type="CoEcoModel.LendingItem" Role="SYS_TBL_LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="OrderStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_LendingItem_SYS_TBL_Unit">
+          <End Type="CoEcoModel.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="CoEcoModel.LendingItem" Role="SYS_TBL_LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="UnitRequestsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_LendingItem_SYS_TBL_UnitLeading">
+          <End Type="CoEcoModel.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="CoEcoModel.LendingItem" Role="SYS_TBL_LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="UnitLendingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_TBL_Message_SYS_TBL_LendingItem">
+          <End Type="CoEcoModel.LendingItem" Role="SYS_TBL_LendingItem" Multiplicity="1" />
+          <End Type="CoEcoModel.Message" Role="Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_TBL_LendingItem">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CoEcoModelStoreContainer" CdmEntityContainer="CoEcoEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="CoEcoModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="CoEcoModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="CoEcoModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="CoEcoModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="ShouldBeSignedOut" ColumnName="ShouldBeSignedOut" />
+                <ScalarProperty Name="AccountExpiresAt" ColumnName="AccountExpiresAt" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="CoEcoModel.Item">
+              <MappingFragment StoreEntitySet="SYS_TBL_Item">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="IconStoreID" ColumnName="IconStoreID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemToUnits">
+            <EntityTypeMapping TypeName="CoEcoModel.ItemToUnit">
+              <MappingFragment StoreEntitySet="SYS_TBL_ItemToUnit">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="CoEcoModel.Log">
+              <MappingFragment StoreEntitySet="SYS_TBL_Log">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TZ" ColumnName="TZ" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="LogType" ColumnName="LogType" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="CoEcoModel.Notification">
+              <MappingFragment StoreEntitySet="SYS_TBL_Notification">
+                <ScalarProperty Name="ToBeSent" ColumnName="ToBeSent" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NotificationName" ColumnName="NotificationName" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="LastSentDate" ColumnName="LastSentDate" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatuses">
+            <EntityTypeMapping TypeName="CoEcoModel.OrderStatus">
+              <MappingFragment StoreEntitySet="SYS_TBL_OrderStatus">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="CoEcoModel.Unit">
+              <MappingFragment StoreEntitySet="SYS_TBL_Unit">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="OriginalWheelsQuantity" ColumnName="OriginalWheelsQuantity" />
+                <ScalarProperty Name="CurrentWheelQuantity" ColumnName="CurrentWheelQuantity" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IconStores">
+            <EntityTypeMapping TypeName="CoEcoModel.IconStore">
+              <MappingFragment StoreEntitySet="SYS_TBL_VAL_IconStore">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="CoEcoModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="RatingQuestions">
+            <EntityTypeMapping TypeName="CoEcoModel.RatingQuestion">
+              <MappingFragment StoreEntitySet="SYS_TBL_RatingQuestion">
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermissionsProfiles">
+            <EntityTypeMapping TypeName="CoEcoModel.PermissionsProfile">
+              <MappingFragment StoreEntitySet="SYS_TBL_PermissionsProfile">
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="OrderConfirmation" ColumnName="OrderConfirmation" />
+                <ScalarProperty Name="UpdateInventory" ColumnName="UpdateInventory" />
+                <ScalarProperty Name="OpenAnOrder" ColumnName="OpenAnOrder" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="CoEcoModel.Member">
+              <MappingFragment StoreEntitySet="SYS_TBL_Members">
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="PermissionsProfileID" ColumnName="PermissionsProfileID" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="TZ" ColumnName="TZ" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="CoEcoModel.Message">
+              <MappingFragment StoreEntitySet="SYS_TBL_Message">
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="OpeningDate" ColumnName="OpeningDate" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MembersFileErrors">
+            <EntityTypeMapping TypeName="CoEcoModel.MembersFileError">
+              <MappingFragment StoreEntitySet="SYS_TBL_MembersFileError">
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ErrorMsg" ColumnName="ErrorMsg" />
+                <ScalarProperty Name="FilesUploadName" ColumnName="FilesUploadName" />
+                <ScalarProperty Name="TZ" ColumnName="TZ" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistanceUnits">
+            <EntityTypeMapping TypeName="CoEcoModel.DistanceUnit">
+              <MappingFragment StoreEntitySet="SYS_TBL_DistanceUnit">
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="SecondUnitID" ColumnName="SecondUnitID" />
+                <ScalarProperty Name="FirstUnitID" ColumnName="FirstUnitID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LendingItems">
+            <EntityTypeMapping TypeName="CoEcoModel.LendingItem">
+              <MappingFragment StoreEntitySet="SYS_TBL_LendingItem">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ProblemDescriptionRequestUnit" ColumnName="ProblemDescriptionRequestUnit" />
+                <ScalarProperty Name="ProblemDescriptionLendingUnit" ColumnName="ProblemDescriptionLendingUnit" />
+                <ScalarProperty Name="RatingRequestUnit" ColumnName="RatingRequestUnit" />
+                <ScalarProperty Name="RatingLendingUnit" ColumnName="RatingLendingUnit" />
+                <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="UnitLendingID" ColumnName="UnitLendingID" />
+                <ScalarProperty Name="UnitRequestsID" ColumnName="UnitRequestsID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDataReports">
+            <EntityTypeMapping TypeName="CoEcoModel.OrderDataReport">
+              <MappingFragment StoreEntitySet="OrderDataReport">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UnitLendingID" ColumnName="UnitLendingID" />
+                <ScalarProperty Name="UnitRequestsID" ColumnName="UnitRequestsID" />
+                <ScalarProperty Name="LendingUnitName" ColumnName="LendingUnitName" />
+                <ScalarProperty Name="LendingUnitCurrentWheelQuantity" ColumnName="LendingUnitCurrentWheelQuantity" />
+                <ScalarProperty Name="RequestingUnitName" ColumnName="RequestingUnitName" />
+                <ScalarProperty Name="RequestingUnitCurrentWheelQuantity" ColumnName="RequestingUnitCurrentWheelQuantity" />
+                <ScalarProperty Name="ProblemDescriptionLendingUnit" ColumnName="ProblemDescriptionLendingUnit" />
+                <ScalarProperty Name="ProblemDescriptionRequestUnit" ColumnName="ProblemDescriptionRequestUnit" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="RatingLendingUnit" ColumnName="RatingLendingUnit" />
+                <ScalarProperty Name="RatingRequestUnit" ColumnName="RatingRequestUnit" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

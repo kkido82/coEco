@@ -1,0 +1,81 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="form-horizontal">
+            <div class="form-group col-sm-4">
+                <div class="form-group">
+                    <label class="col-sm-3">שם פרטי</label>
+                    <input class="col-sm-7 form-control"  ng-model="vm.filterContext.firstName" />
+                </div>
+            </div>
+            <div class="form-group col-sm-4">
+                <div class="form-group">
+                    <label class="col-sm-3">שם משפחה</label>
+                    <input class="col-sm-7 form-control"  ng-model="vm.filterContext.lastName" />
+                </div>
+            </div>
+            <div class="form-group col-sm-4">
+                <div class="form-group">
+                    <label class="col-sm-3">תעודת זהות</label>
+                    <input class="col-sm-7 form-control" ng-model="vm.filterContext.userName" />
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <button class="btn left btn-app" ng-click="vm.resetSearch()"><i class="fa fa-remove"></i>נקה</button>
+        <button class="btn btn-app" ng-click="vm.search(true)"><i class="fa fa-search"></i>חפש</button>
+
+    </div>
+    <div class="col-sm-4 col-sm-offset-4">
+        <button class="btn btn-success btn-app pull-left bg-navy" ui-sref="userAdminEdit({id:null})" ng-if="vm.canEdit"><i class="fa fa-plus"></i>חדש</button>
+        <button class="btn btn-success  btn-app pull-left bg-olive" ng-click="vm.exportToExcel()"><i class="fa fa-file-excel-o"></i>&nbsp;יצא</button>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12" ng-if="vm">
+        <table class="table table-striped table-condensed table-bordered dataTable">
+            <thead>
+                <tr>
+                    <th ng-click="vm.reorderBy('FirstName')">שם פרטי</th>
+                    <th ng-click="vm.reorderBy('LastName')">שם משפחה</th>
+                    <th ng-click="vm.reorderBy('Email')">מייל</th>
+                    <th ng-click="vm.reorderBy('PhoneNumber')">טלפון</th>
+                    <th ng-click="vm.reorderBy('UserName')">תעודת זהות</th>
+                    <th>פעיל</th>
+                    <!--<th ng-click="vm.reorderBy('accountExpiresAt')">בתוקף עד</th>-->
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vm.items" ng-class="{danger: item.Disabled}">
+
+                    <td>{{item.FirstName}}</td>
+                    <td>{{item.LastName}}</td>
+                    <td>{{item.Email}}</td>
+                    <td>{{item.PhoneNumber}}</td>
+                    <td>{{item.UserName}}</td>
+                    <td>{{item.Disabled ? 'לא' : 'כן'}}</td>
+                    <!--<td>{{item.AccountExpiresAt | date:'dd/MM/yyyy'}}</td>-->
+                    <td ng-if="vm.canEdit">
+                        <a class="btn btn-sm btn-primary" ui-sref="userAdminEdit({id:item.Id})">ערוך</a>
+                        <button class="btn btn-sm btn-danger" ng-click="vm.remove(item)">
+                            מחק
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <items-pager num-pages="vm.getNumPages()" page-size="vm.pagingContext.itemsPerPage" page-index="vm.pagingContext.pageIndex" paging-options="vm.pagingContext.pagingOptions"
+                     on-paging="vm.setPage(page)" on-page-size-change="vm.setPageSize(pageSize)">
+        </items-pager>
+    </div>
+</div>

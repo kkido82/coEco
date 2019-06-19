@@ -1,0 +1,18 @@
+<div class="readOnlyItem">
+  <div class="readOnlyItem__mainInfo">
+    <div class="readOnlyItem__imgWrapper">
+      <img [src]="data.itemId | itemIcon" class="readOnlyItem__img" alt="" />
+    </div>
+    <div class="readOnlyItem__titlesWrapper">
+      <div class="readOnlyItem__title">{{ data.itemName }}</div>
+      <div class="readOnlyItem__status">
+        <app-status-circle [status]="data.statusId"></app-status-circle>
+        {{ data.statusName }}
+      </div>
+    </div>
+  </div>
+  <div class="readOnlyItem__extraInfo">
+    <div class="readOnlyItem__unit">{{ unitName }}</div>
+    <div class="readOnlyItem__date">{{ data.orderDate | amDateFormat:'DD.MM.YY' }}</div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+﻿<div ng-show="vm.canShow">
+
+    <div class="row">
+
+        <div class="form-group col-sm-4">
+            <div class="form-group">
+                <label class="col-sm-3">שם פריט:</label>
+                <input class="col-sm-7 form-control" ng-model="vm.filters.Name.contains" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+      
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <button class="btn left btn-app" ng-click="vm.resetSearch()"><i class="fa fa-remove"></i>נקה</button>
+        <button class="btn btn-app" ng-click="vm.searchOverride()"><i class="fa fa-search"></i>חפש</button>
+    </div>
+    <div class="col-sm-4 col-sm-offset-4">
+        <button class="btn btn-success  btn-app pull-left bg-olive" ng-click="vm.exportToExcel()"><i class="fa fa-file-excel-o"></i>&nbsp;יצא</button>
+        <button class="btn btn-success btn-app pull-left bg-navy" ui-sref="manageItems.details({id:0})" ng-if="vm.canEdit"><i class="fa fa-plus"></i>חדש</button>
+    </div>
+</div>
+<hr />
+
+
+
+<hr />
+
+<div class="box box-danger">
+    <table class="table table-striped table-condensed table-bordered">
+        <thead>
+            <tr>
+                <th ng-click="vm.reorderBy('ID')">#</th>
+                <th ng-click="vm.reorderBy('Name')">שם</th>
+                <th ng-click="vm.reorderBy('Cost')">עלות</th>
+                <th ng-click="vm.reorderBy('IconStoreID')">אייקון</th>
+                <th>חסום</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="entity in vm.entities">
+                <td>{{ entity.ID }}</td>
+                <td>{{ entity.Name}}</td>
+                <td>{{ entity.Cost}}</td>
+                <td>{{ entity.IconStore.Name}}</td>
+                <td>{{ entity.Disable |yesNo}}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" ui-sref="manageItems.details({id:entity.ID})" ng-if="vm.canEdit">הצג</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <items-pager num-pages="vm.getNumPages()" page-size="vm.pagingContext.itemsPerPage" page-index="vm.pagingContext.pageIndex" paging-options="vm.pagingContext.pagingOptions"
+                     on-paging="vm.setPage(page)" on-page-size-change="vm.setPageSize(pageSize)">
+        </items-pager>
+    </div>
+</div>

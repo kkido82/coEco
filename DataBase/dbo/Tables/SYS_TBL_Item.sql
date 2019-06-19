@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[SYS_TBL_Item]
+(
+	[ID] INT PRIMARY KEY IDENTITY (1, 1) NOT NULL, 
+	[Name] NVARCHAR(500) NOT NULL,
+	[Cost] INT NOT NULL,
+	[IconStoreID] INT NOT NULL,
+	[CreatedOn] DATETIME2 NOT NULL, 
+    [CreatedBy] NVARCHAR(50) NOT NULL, 
+    [UpdatedOn] DATETIME2 NOT NULL, 
+    [UpdatedBy] NVARCHAR(50) NOT NULL, 
+    [Disable] BIT NOT NULL
+	CONSTRAINT [FK_SYS_TBL_Item_SYS_TBL_VAL_IconStore] FOREIGN KEY ([IconStoreID]) REFERENCES [dbo].[SYS_TBL_VAL_IconStore] ([ID]),
+)

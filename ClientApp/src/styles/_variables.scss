@@ -1,0 +1,34 @@
+// fonts
+@include font-face('assistantRegular', 'assistant-v1-hebrew-regular');
+@include font-face('assistantSemiBold', 'assistant-v3-hebrew_latin-600');
+@include font-face('assistantBold', 'assistant-v1-hebrew-700');
+@include font-face('narkisBlock', 'NarkisBlock-Condensed_MFW');
+@include font-face('narkisThin', 'NarkisBlockMFO-ConThin');
+@include font-face('rubikMedium', 'rubik-v8-latin_hebrew-700');
+@include font-face('narkisBold', 'NarkisBlockMFO-ConBold');
+
+
+$assistantRegular:'assistantRegular', sans-serif;
+$assistantSemiBold:'assistantSemiBold', sans-serif;
+$assistantBold:'assistantBold', sans-serif;
+$narkisThin:'narkisThin', sans-serif;
+$narkisBlock:'narkisBlock', sans-serif;
+$narkisBold:'narkisBold', sans-serif;
+$rubikMedium:'rubikMedium', sans-serif;
+
+
+// viewports
+$screen-sm: 768px;
+$screen-md: 992px;
+
+// colors
+$colorBlack: #000;
+$colorBlack1: #333333;
+$colorWhite: #fff;
+$colorYellow: #fde85e;
+$colorBlue: #0a5cf2;
+$colorGray: #7a7474;
+$placeholdercolor: #959eb0;
+// sizes
+$headerHeight: 55px;
+

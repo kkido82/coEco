@@ -1,0 +1,26 @@
+[
+  {
+    "itemUnitId": 1,
+    "itemId": 1,
+    "unitName": "גדוד 123",
+    "distance": 1.2,
+    "rating": 1,
+    "description": "טקסט תיאור לורם איפסום"
+  },
+  {
+    "itemUnitId": 2,
+    "itemId": 2,
+    "unitName": "פלסר צנחנים",
+    "distance": 99,
+    "rating": 3,
+    "description": "טקסט תיאור לורם איפסום"
+  },
+  {
+    "itemUnitId": 3,
+    "itemId": 3,
+    "unitName": "סיירת מטכל",
+    "distance": 23.2,
+    "rating": 5,
+    "description": "טקסט תיאור לורם איפסום"
+  }
+]

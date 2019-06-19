@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="82f1e16a7fad4051ad07410329dd297e" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="CoEcoModel.AspNetRole" Width="1.5" PointX="5.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoEcoModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoEcoModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoEcoModel.AspNetUser" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoEcoModel.Item" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoEcoModel.ItemToUnit" Width="1.5" PointX="6" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoEcoModel.Log" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoEcoModel.Notification" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoEcoModel.OrderStatus" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoEcoModel.Unit" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoEcoModel.IconStore" Width="1.5" PointX="1.5" PointY="19" IsExpanded="true" />
+        <AssociationConnector Association="CoEcoModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CoEcoModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_Item_SYS_TBL_VAL_IconStore" ManuallyRouted="false" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_ItemToUnit_SYS_TBL_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_ItemToUnit_SYS_TBL_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="CoEcoModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CoEcoModel.RatingQuestion" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CoEcoModel.PermissionsProfile" Width="1.5" PointX="13.375" PointY="5" />
+        <EntityTypeShape EntityType="CoEcoModel.Member" Width="1.5" PointX="15.625" PointY="6.625" />
+        <EntityTypeShape EntityType="CoEcoModel.Message" Width="1.5" PointX="20.125" PointY="8.375" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_Members_SYS_TBL_PermissionsProfileID" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_Members_SYS_TBL_Unit" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_Message_SYS_TBL_Members" />
+        <EntityTypeShape EntityType="CoEcoModel.MembersFileError" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CoEcoModel.DistanceUnit" Width="1.5" PointX="3" PointY="9.125" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_Item_SYS_TBL_VAL_FirstUnit" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_Item_SYS_TBL_VAL_SecondUnit" />
+        <EntityTypeShape EntityType="CoEcoModel.LendingItem" Width="1.5" PointX="17.875" PointY="8.25" />
+        <EntityTypeShape EntityType="CoEcoModel.OrderDataReport" Width="1.5" PointX="4.375" PointY="13.75" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Item" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Members" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_OrderStatus" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_Unit" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_LendingItem_SYS_TBL_UnitLeading" />
+        <AssociationConnector Association="CoEcoModel.FK_SYS_TBL_Message_SYS_TBL_LendingItem" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

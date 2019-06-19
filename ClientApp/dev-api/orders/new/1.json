@@ -1,0 +1,15 @@
+{
+    "id": 0,
+    "itemId": 1,
+    "itemName": "מקדחה",
+    "fromUnit": "גדוד 456",
+    "statusId": 0,
+    "orderDate": "01-04",
+    "cost": 20,
+    "distance": 23,
+    "itemDescription": "תיאור פריט ביחידה",
+    "contactPersonName": "אסף אמדורסקי",
+    "contactPersonPhone": "03-123456",
+    "remarks": "תיאור שהוכנס ביצירת",
+    "actions": [0]
+  } 

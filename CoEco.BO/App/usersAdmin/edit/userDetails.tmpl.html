@@ -1,0 +1,149 @@
+﻿
+<div class="form-horizontal" ng-form="vm.editForm" ng-model-options="{updateOn: 'default blur', debounce: {default :1000, blur: 0}}">
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <button type="button" class="btn btn-app btn-github" ng-click="vm.onsave()" ><i class="fa fa-save"></i> שמור</button><!--ng-disabled="!vm.editForm.$valid"-->
+            <button type="button" class="btn btn-app btn-dropbox" ng-click="vm.onreset()"><i class="fa fa-undo"></i> אפס</button>
+            <a class="btn btn-app btn-bitbucket pull-left" ui-sref="usersAdmin">
+                <i class="fa fa-arrow-right"></i>
+                חזרה
+            </a>
+          
+        </div>
+    </div>
+    <!--<div class="form-group">
+        <label class="col-sm-3">#</label>
+        <label class="col-sm-7">{{vm.editedUser.id}}</label>
+
+    </div>-->
+
+    <div class="form-group" ng-class="{'has-error':vm.showError('userName')}">
+        <label class="col-sm-3" for="userName">
+            תעודת זהות
+            <small ng-messages="vm.editForm.userName.$error" role="alert" ng-if="vm.showError('userName')">
+                <div ng-repeat="(key,val) in vm.validationMessages">
+                    <div ng-message-exp="key"><i class="fa fa-warning">&nbsp;</i>{{vm.getMessage(key,'מספר זהות')}}</div>
+                </div>
+            </small>
+
+        </label>
+        <input class="col-sm-7 form-control" name="userName" id="userName" ng-disabled="!vm.isNew" ng-model="vm.editedUser.UserName" required ng-pattern="'\\d{9}'" />
+    </div>
+
+    <div class="form-group" ng-class="{'has-error':vm.showError('firstName')}">
+        <label class="col-sm-3" for="firstName">
+            שם פרטי
+            <small ng-messages="vm.editForm.FirstName.$error" role="alert" ng-if="vm.showError('firstName')">
+                <div ng-repeat="(key,val) in vm.validationMessages">
+                    <div ng-message-exp="key"><i class="fa fa-warning">&nbsp;</i>{{vm.getMessage(key,'שם פרטי')}}</div>
+                </div>
+            </small>
+        </label>
+        <input class="col-sm-7 form-control" name="firstName" ng-model="vm.editedUser.FirstName" required id="firstName" />
+
+    </div>
+
+    <div class="form-group" ng-class="{'has-error':vm.showError('lastName')}">
+        <label class="col-sm-3" for="lastName">
+            שם משפחה
+            <small ng-messages="vm.editForm.LastName.$error" role="alert" ng-if="vm.showError('lastName')">
+                <div ng-repeat="(key,val) in vm.validationMessages">
+                    <div ng-message-exp="key"><i class="fa fa-warning">&nbsp;</i>{{vm.getMessage(key,'שם משפחה')}}</div>
+                </div>
+            </small>
+        </label>
+
+        <input class="col-sm-7 form-control" name="lastName" ng-model="vm.editedUser.LastName" required id="lastName" />
+    </div>
+    <div class="form-group" ng-class="{'has-error':vm.showError('email')}">
+        <label class="col-sm-3" for="email">
+            מייל
+            <small ng-messages="vm.editForm.Email.$error" role="alert" ng-if="vm.showError('email')">
+                <div ng-repeat="(key,val) in vm.validationMessages">
+                    <div ng-message-exp="key"><i class="fa fa-warning">&nbsp;</i>{{vm.getMessage(key,'מייל')}}</div>
+                </div>
+            </small>
+        </label>
+        <input class="col-sm-7 form-control" type="email" name="email" ng-model="vm.editedUser.Email" id="email" />
+    </div>
+    <div class="form-group" ng-class="{'has-error':vm.showError('phoneNumber')}">
+        <label class="col-sm-3" for="phoneNumber">
+            טלפון
+            <small ng-messages="vm.editForm.PhoneNumber.$error" role="alert" ng-if="vm.showError('phoneNumber')">
+                <div ng-message="pattern">טלפון לא תקין </div>
+                <div ng-repeat="(key,val) in vm.validationMessages">
+                    <div ng-message-exp="key"><i class="fa fa-warning">&nbsp;</i>{{vm.getMessage(key,'טלפון')}}</div>
+                </div>
+            </small>
+        </label>
+        <input class="col-sm-7 form-control" ng-model="vm.editedUser.PhoneNumber" name="phoneNumber" id="phoneNumber" ng-pattern="/^[0-9]+(?:\-[0-9]+)?$/" />
+    </div>
+    <div class="form-group" ng-class="{'has-error':vm.showError('disabled')}">
+        <label class="col-sm-3" for="disabled">
+            השהה
+        </label>
+        <input type="checkbox" ng-model="vm.editedUser.Disabled" name="disabled" id="disabled"/>
+    </div>
+    <!--<div class="form-group" ng-class="{'has-error':vm.showError('accountExpiresAt')}">
+        <label class="col-sm-3" for="accountExpiresAt">
+           תוקף
+            <small ng-messages="vm.editForm.AccountExpiresAt.$error" role="alert" ng-if="vm.showError('AccountExpiresAt')">
+                <div ng-repeat="(key,val) in vm.validationMessages">
+                    <div ng-message-exp="key"><i class="fa fa-warning">&nbsp;</i>{{vm.getMessage(key,'AccountExpiresAt')}}</div>
+                </div>
+            </small>
+        </label>
+
+        <div class="col-sm-3" style="padding:0">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <input type="text" id="accountExpiresAt" name="accountExpiresAt" required placeholder="בחר תאריך" date-range-picker class="form-control pull-left owr" ng-model="vm.editedUser.accountExpiresAt" options="{singleDatePicker: true,showDropdowns: true, locale:vm.locale,drop:'up'}">
+            </div>
+        </div>
+
+    </div>-->
+    <!--<div class="form-group" ng-class="{'has-error':vm.showError('lockoutEndDateUtc')}">
+        <label class="col-sm-3" for="lockoutEndDateUtc">
+            נעול עד
+         
+        </label>
+    
+            <div class="col-sm-3" style="padding:0">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input name="lockoutEndDateUtc" id="lockoutEndDateUtc" type="text" placeholder="בחר תאריך" date-range-picker class="form-control pull-right" ng-model="vm.editedUser.lockoutEndDateUtc" options="{singleDatePicker: true,showDropdowns: true, locale:vm.locale}">
+                </div>
+            </div>
+
+    </div>-->
+    <div ng-if="vm.isNew">
+        <div class="form-group" ng-class="{'has-error':vm.showError('password')}">
+            <label class="col-sm-3">
+                סיסמה
+                <small ng-messages="vm.editForm.password.$error" role="alert" ng-if="vm.showError('password')">
+                    <div ng-message="pattern">סיסמה חייבת להיות בת 6 תוים, לפחות, ולכלול אות קטנה, אות גדולה, סימן וספרה </div>
+                    <div ng-repeat="(key,val) in vm.validationMessages">
+                        <div ng-message-exp="key"><i class="fa fa-warning">&nbsp;</i>{{vm.getMessage(key,'סיסמה')}}</div>
+                    </div>
+                </small>
+            </label>
+            <input type="password" class="col-sm-7 form-control" ng-model="vm.editedUser.password" name="password" required ng-minlength="6" ng-pattern="/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).+$/" />
+        </div>
+
+        <div class="form-group" ng-class="{'has-error':vm.editForm.confirmPassword.$invalid}">
+            <label class="col-sm-3" for="confirmPassword">
+                אימות סיסמה
+                <small role="alert" ng-if="vm.editForm.confirmPassword.$invalid">
+                    <div><i class="fa fa-warning">&nbsp;</i>הסיסמאות אינן תואמות</div>
+                </small>
+            </label>
+            <input type="password" class="col-sm-7 form-control" ng-model="vm.confirmPassword" name="confirmPassword" compare-to="vm.editedUser.password"/>
+
+        </div>
+    </div>
+
+</div>

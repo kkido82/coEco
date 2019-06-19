@@ -1,0 +1,73 @@
+﻿@model ProblemReportMailModel
+@using CoEco.Front.Models.Ordering
+@{ 
+    Layout = null;
+}
+<div>
+    <h1>הזמנה מס. @Model.OrderId</h1>
+
+    <table>
+        <tr>
+            <th>תאריך פתיחה</th>
+            <td>@Model.ReportDate.ToString("dd.MM.yyyy")</td>
+        </tr>
+        <tr>
+            <th>נפתחה ע"י</th>
+            <td>@Model.ReportingMember</td>
+        </tr>
+        <tr>
+            <th>
+                פרטי ההזמנה
+            </th>
+            <td>
+                <table>
+                    <tr>
+                        <th>תאריך פתיחה</th>
+                        <td>@Model.OrderCreatedDate.ToString("dd.MM.yyyy")</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            פריט
+                        </th>
+                        <td>
+                            @Model.ItemName
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            יחידה מבקשת
+                        </th>
+                        <td>
+                            @Model.ToUnit
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            יחידה מלווה
+                        </th>
+                        <td>
+                            @Model.FromUnit
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            סטאטוס<br />
+                            (בעת פתיחת הבעייה)
+                        </th>
+                        <td>
+                            @Model.CurrentStatus
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                תיאור
+            </th>
+            <td>
+                <pre>@Model.Description</pre>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,14 @@
+
+<div class="searchResultItem" (click)="select.emit(data)">
+  <div class="searchResultItem__info">
+    <div class="searchResultItem__unit">{{ data.unitName }}</div>
+    <div class="searchResultItem__distance">
+      <img src="assets/imgs/location.png" class="searchResultItem__locationIcon" alt="">
+      {{ data.distance }} ק"מ
+    </div>
+    <div class="rating">
+      <img src="assets/imgs/star.png" class="rating__img" *ngFor="let x of data.rating | times" alt="">
+    </div>
+  </div>
+  <div class="searchResultItem__description">{{ data.description }}</div>
+</div>

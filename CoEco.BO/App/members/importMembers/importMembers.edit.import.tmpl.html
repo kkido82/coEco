@@ -1,0 +1,19 @@
+﻿<div class="modal-header"><h3>ייבוא זכאים</h3></div>
+
+<notification-alert errors="vm.errors"></notification-alert>
+
+<div class="modal-body" id="modal-body" ng-form="vm.uploadForm">
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label class="col-sm-2">בחר קובץ:</label>
+            <input class="form-control" type="file" nv-file-select uploader="vm.file" accept=".xlsx" />
+        </div>
+    </div>
+</div>
+<div class="modal-footer" ng-if="!vm.isUploading">
+    <button class="btn btn-primary" type="button" ng-click="vm.ok()" ng-disabled="!vm.file.queue.length">{{vm.buttonName}}</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">בטל</button>
+</div>
+<div class="modal-footer" ng-if="vm.isUploading">
+    <button class="btn btn-primary" type="button" ng-click="vm.ok()" ng-disabled="1">{{vm.buttonName}}</button>
+</div>

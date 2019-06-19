@@ -1,0 +1,16 @@
+<section class="loginSection">
+  <router-outlet></router-outlet>
+
+  <div class="loginContact" *ngIf="texts">
+      <div class="loginContact__text" appText="login_contact_title"></div>
+      <div class="phones">
+        <a href="tel:0505666666" class="loginContact__number" *ngFor="let phone of texts.contact.phones">{{ phone }}</a>
+        <!-- <a href="tel:0505555444" class="loginContact__number">0505555444</a> -->
+      </div>
+  
+      <div class="loginContact__extraInfo" *ngIf="showExtraInfo">
+        {{ texts.contact.extraInfo }}
+      </div>
+    </div>
+
+</section> 

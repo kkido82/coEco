@@ -1,0 +1,24 @@
+﻿<div><!--ng-show="vm.canEdit"-->
+    <errors-alert errors="vm.errors"></errors-alert>
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <button type="button" class="btn btn-app btn-bitbucket 'btn-success' pull-left owr" ng-click="vm.save()"><i class="fa fa-save"></i>שמור </button>
+            <a class="btn btn-app btn-bitbucket pull-left" ui-sref="ratingQuestions.list">
+                <i class="fa fa-arrow-right"></i>
+                חזרה
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">מזהה:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.ID" disabled />
+
+        </div>    
+        <div class="form-group col-sm-12">
+            <label class="col-sm-3">נוסח שאלה:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.QuestionText" ng-maxlength="100"/>
+        </div>
+    </div>
+</div>

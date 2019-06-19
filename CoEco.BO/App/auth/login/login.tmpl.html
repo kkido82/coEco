@@ -1,0 +1,53 @@
+﻿
+
+<div class="login-box">
+    <div class="login-logo">
+        <h1>כלכלה שיתופית</h1>
+    </div>
+    <div class="login-box-body">
+        <div class="login-box-msg">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="alert alert-warning" ng-if="vm.errors.length">
+                        <h4><i class="icon fa fa-ban"></i> שגיאות!</h4>
+                        <ul class="list-unstyled">
+                            <li ng-repeat="err in vm.errors">
+                                {{err.errorMessage || err}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <h5>הזן פרטי התחברות</h5>
+        </div>
+        <form name="loginForm" ng-submit="vm.login()" autocomplete="off">
+            <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+
+            <div class="form-group has-feedback">
+
+                <input type="text" placeholder="משתמש" class="form-control" name="username" id="username" required ng-model="vm.authData.username">
+                <span class="fa fa-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+
+                <input type="password" placeholder="סיסמה" autocomplete="new-password" class="form-control" name="password" id="password" required ng-model="vm.authData.password">
+                <span class="fa fa-lock form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox" name="rememberMe" id="rememberMe" ng-model="vm.authData.rememberMe"> זכור אותי
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-primary btn-block btn-flat">התחבר</button>
+                </div>
+                <!-- /.col -->
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿<div><!--ng-show="vm.canEdit"-->
+    <errors-alert errors="vm.errors"></errors-alert>
+    <div class="row">
+        <div class="form-group col-sm-12">        
+            <button type="button" class="btn btn-app btn-bitbucket 'btn-success' pull-left owr" ng-click="vm.save()"><i class="fa fa-save"></i>שמור </button>
+            <a class="btn btn-app btn-bitbucket pull-left" ui-sref="permissionsProfiles.list">
+                <i class="fa fa-arrow-right"></i>
+                חזרה
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label class="col-sm-3">שם הודעה:</label>
+            <input class="col-sm-8 form-control" ng-model="vm.entity.Name"/>
+        </div> 
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label class="col-sm-3">פתיחת הזמנה:</label>
+            <input type="checkbox" ng-model="vm.entity.OpenAnOrder" />
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="col-sm-3">עדכון מלאי:</label>
+            <input type="checkbox" ng-model="vm.entity.UpdateInventory" />
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="col-sm-3">אישור הזמנה:</label>
+            <input type="checkbox" ng-model="vm.entity.OrderConfirmation" />
+        </div>
+    </div>   
+</div>

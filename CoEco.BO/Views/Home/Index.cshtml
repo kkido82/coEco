@@ -1,0 +1,103 @@
+﻿@using CoEco.BO.Extensions
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Serialization;
+@model CoEco.BO.Models.HomeModel
+@{
+    Layout = null;
+
+    var userJson = Model.User == null ? "null" : JsonConvert.SerializeObject(Model.User, Formatting.None,
+                new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Title</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/admin-lte/css/AdminLTE.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <link href="~/Content/aside-menu.css" rel="stylesheet" />
+    <link href="~/Content/ng-quick-date.css" rel="stylesheet" />
+    <link href="~/admin-lte/css/skins/skin-purple.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet">
+
+    <link href="~/Content/angular-toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/loading-bar.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/daterangepicker.css" rel="stylesheet" />
+    <link href="~/Content/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+    @*<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />*@
+    <meta name="description" content="The description of my page" />
+    @*<script type="text/javascript" src="~/Scripts/tinymce.min.js"></script>*@
+
+
+</head>
+<body class="hold-transition skin-purple sidebar-mini" ng-app="coeco">
+
+    <div class="wrapper" ng-class="{'sub-open' : submenuOpen,'signed-out':!userState || !userState.isAuth}">
+        <header class="main-header">
+            <a ui-sref="home" class="logo">
+                כלכלה שיתופית
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="javascript:void(0);" ng-click="submenuOpen = !submenuOpen" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <user-state></user-state>
+            </nav>
+
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <coeco-menu></coeco-menu>
+            </section>
+        </aside>
+        <div class="content-wrapper" id="loading-bar-container">
+            <section class="content-header" ng-if="userState.isAuth">
+
+                <coeco-breadcrumbs></coeco-breadcrumbs>
+            </section>
+            <section class="content maincontent">
+                <div>
+
+                    <div ng-if="submenuOpen" ui-view="submenu"></div>
+                    <div class="box box-primary main-panel" ng-scrollbars ng-scrollbars-config="{axis:'y',theme:'dark'}">
+                        <div class="box-header with-border"><coeco-header></coeco-header></div>
+                        <div class="box-body"><ui-view class="main-view"></ui-view></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/vendor")
+    @Scripts.Render("~/bundles/app")
+    <script src="~/Scripts/angular-gravatar.js"></script>
+    <script src="~/Scripts/angular-file-upload.js"></script>
+    <script>
+        (function(context) {
+            context.coecoMetaContext = context.coecoMetaContext  || {};
+            var data = @Html.ValidationResourcesJson();
+            var userData = @Html.Raw(userJson);
+            context.coecovalidationMessages = context.coecoMetaContext.validationMessages || data;
+            context.coecoMetaContext.userData = userData;
+        })(window);
+    </script>
+
+
+    <script src="~/App/app.min.js"></script>
+
+</body>
+</html>
+
+@*<div class="row">
+        <div class="col-md-4">
+            <h2>נסיון התחברות</h2>
+            <h3>@ViewBag.MemberMI</h3>
+        </div>
+    </div>*@

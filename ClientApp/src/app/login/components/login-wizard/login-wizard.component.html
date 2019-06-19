@@ -1,0 +1,2 @@
+<app-login-form *ngIf="!tzSent" (submitTz)="submitTz($event)"></app-login-form>
+<app-code-form *ngIf="tzSent" (submitCode)="submitCode($event)" (sendTzAgain)="sendTzAgain()"></app-code-form>

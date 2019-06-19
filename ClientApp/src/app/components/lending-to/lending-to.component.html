@@ -1,0 +1,14 @@
+<ul class="itemsList" *ngIf="items">
+  <li class="itemsList__item" *ngFor="let item of items">
+    <app-read-only-item [data]="item" (click)="showDetails(item)" isTo="true"></app-read-only-item>
+  </li>
+</ul>
+
+<app-order-details
+  *ngIf="order"
+  class="orderDetails"
+  [details]="order"
+  [class.show]="orderDetailsOpened"
+  (close)="closeDetails($event)"
+>
+</app-order-details>

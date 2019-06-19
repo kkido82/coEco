@@ -1,0 +1,49 @@
+﻿<ul class="pagination col-md-12">
+    <li ng-if="vm.numPages > 1">
+        <a href="" aria-label="First" ng-disabled="vm.pageIndex <= 0" ng-click="vm.setPage(0)">
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+    </li>
+    <li ng-if="vm.numPages > 1">
+        <a href="" aria-label="Previous" ng-disabled="vm.pageIndex <= 0" ng-click="vm.setPage(vm.pageIndex - 1)">
+            <span aria-hidden="true">&lsaquo;</span>
+        </a>
+    </li>
+    <!--<li ng-if="vm.numPages > 1" ng-class="{active:vm.pageIndex === $index}" ng-repeat="page in vm.pagerArray track by $index">
+        <a ng-show="vm.pageIndex === ($index) || vm.pageIndex === ($index - 1) || vm.pageIndex == ($index -2) || vm.pageIndex == ($index -3)"
+           href="" ng-disabled="vm.pageIndex === $index" ng-click="vm.setPage($index)">{{$index + 1}}</a>
+
+        <a ng-show="vm.pageIndex === ($index + 1)  || vm.pageIndex === ($index + 2) || vm.pageIndex === ($index + 3)"
+           href="" ng-disabled="vm.pageIndex === $index" ng-click="vm.setPage($index)">{{$index + 1}}</a>
+    </li>-->
+    <li ng-if="vm.numPages > 1">
+        <div>
+            <label>
+                עמוד:
+                {{vm.pageIndex + 1}}
+                מתוך:
+                {{vm.numPages}}
+
+            </label>
+        </div>
+    </li>
+    <li ng-if="vm.numPages > 1">
+        <a href="" aria-label="Next" ng-disabled="vm.pageIndex >= vm.numPages - 2" ng-click="vm.setPage(vm.pageIndex + 1)">
+            <span aria-hidden="true">&rsaquo;</span>
+        </a>
+    </li>
+    <li ng-if="vm.numPages > 1">
+        <a href="" aria-label="Lat" ng-disabled="vm.pageIndex >= vm.numPages - 2" ng-click="vm.setPage(vm.numPages - 1)">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+    <li>
+        <div>
+            <label>
+                גודל עמוד:
+                <select ng-options="number for number in vm.pagingOptions" ng-model="vm.pageSize" ng-change="vm.setPageSize(vm.pageSize)"></select>
+            </label>
+        </div>
+    </li>
+</ul>
+

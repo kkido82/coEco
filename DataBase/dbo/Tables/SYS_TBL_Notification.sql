@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[SYS_TBL_Notification]
+(
+	[ID] INT PRIMARY KEY IDENTITY (1, 1) NOT NULL, 
+	[NotificationName] NVARCHAR(100) NOT NULL,
+	[Content] NVARCHAR(200) NOT NULL,
+	[LastSentDate] DATETIME2 NULL,
+	[ToBeSent] BIT NOT NULL DEFAULT 0,
+	[CreatedOn] DATETIME2 NOT NULL, 
+    [CreatedBy] NVARCHAR(50) NOT NULL, 
+    [UpdatedOn] DATETIME2 NOT NULL, 
+    [UpdatedBy] NVARCHAR(50) NOT NULL, 
+    [Disable] BIT NOT NULL
+)

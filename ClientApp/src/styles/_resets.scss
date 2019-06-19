@@ -1,0 +1,244 @@
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* start reset*/
+* {
+  box-sizing: border-box;
+
+  &:after,
+  &:before {
+    box-sizing: border-box;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+th {
+  font-weight: normal;
+}
+
+button {
+  min-width: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+a {
+  color: $colorBlack;
+  text-decoration: none;
+}
+
+button,
+a {
+  cursor: pointer;
+  transition: all .3s linear;
+}
+
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+
+b,
+strong {
+  // font-family: @font-bold;
+  font-weight: normal;
+}
+
+textarea,
+input,
+button {
+  outline: none;
+}
+
+textarea,
+input {
+  border-radius: 0;
+  padding: 0;
+
+  &:not([type=checkbox]):not([type=radio]) {
+    -webkit-appearance: none;
+  }
+}
+
+input {
+
+  &[type=radio],
+  &[type=checkbox] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  &.emailInput,
+  &[name=email],
+  &.typeEmail,
+  &[type=email] {
+    direction: ltr !important;
+    text-align: right;
+  }
+
+  &::-ms-clear {
+    display: none;
+  }
+
+  &[disabled] {
+    -webkit-text-fill-color: rgba(0, 0, 0, 1);
+  }
+}
+
+textarea {
+  resize: none;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+legend {
+  width: auto;
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  border-bottom: none;
+}
+
+html {
+  font-size: 10px;
+  height: 100%;
+}
+
+
+body {
+  height: 100%;
+  -ms-overflow-style: scrollbar;
+  font-size: 14px;
+  margin: 0;
+
+  &:not(.keyboard) * {
+
+    &:focus,
+    &.focus {
+      outline: none !important;
+    }
+  }
+
+  &.keyboard {
+    *:focus {
+      @include keyboardFocus();
+    }
+
+    .focusin {
+
+      .miglog-prod-remove,
+      .miglog-prod-qtForm-wrapper,
+      .addToCart.bottomContainer,
+      .outerBottom,
+      .topBox {
+        opacity: 1 !important;
+        visibility: visible;
+      }
+
+      .miglog-prod-body .miglog-prod-qt {
+        display: none !important;
+      }
+    }
+
+    input[type="radio"] {
+
+      &:focus+.radioPic {
+        @include keyboardFocus();
+      }
+    }
+
+    input[type="checkbox"] {
+      &:focus+.checkboxPic {
+        @include keyboardFocus();
+      }
+    }
+  }
+}
+
+label {
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+select {
+  opacity: 0;
+  font-size: 16px !important;
+}
+
+.main {
+  @include textReset();
+}
+
+button.btn {
+  display: block;
+}
+
+
+app-root,
+app-app-layout,
+app-header,
+app-main-navbar,
+app-lending-from,
+app-read-only-item,
+app-previous-requests,
+app-search-results,
+app-search-result-item,
+app-order-details,
+app-balance-info,
+app-messages,
+app-login-layout,
+app-login-form,
+app-login-success,
+app-problem-report,
+app-code-form,
+app-login-wizard,
+app-rate-item,
+app-star-rating,
+app-manage-item,
+app-loader,
+app-search-bar {
+  display: block;
+}

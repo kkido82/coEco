@@ -1,0 +1,6 @@
+[
+  { "itemId": 1, "itemName": "מקדחה", "qty": 2, "description": "נקדחה במצב טוב" },
+  { "itemId": 2, "itemName": "כיסא מנהלים", "qty": 4, "description": "" },
+  { "itemId": 3, "itemName": "מיטה צרפתית", "qty": 24, "description": "מיטה מיטה" },
+  { "itemId": 4, "itemName": "האמר פיקוד", "qty": 11, "description": "האמר יד ראשונה" }
+]

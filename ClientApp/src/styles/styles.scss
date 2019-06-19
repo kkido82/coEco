@@ -1,0 +1,1129 @@
+body {
+    &.inLogin {
+
+        // height: auto;
+        .routerWrapper {
+            height: 100%;
+        }
+
+        app-login-layout,
+        app-root {
+            height: 100%;
+        }
+
+        .main {
+            padding: 0;
+        }
+    }
+}
+
+.main {
+    height: 100%;
+    padding: 55px 0 0;
+}
+
+.btn {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    border: 2px solid transparent;
+
+    &--dark {
+        width: 100%;
+        font: 1.5rem $assistantBold;
+        color: $colorWhite;
+        background: $colorBlack1;
+
+    }
+
+    &--light {
+        width: 100%;
+        font: 1.5rem $assistantBold;
+        color: $colorBlack1;
+        background: $colorWhite;
+        border-color: $colorBlack1;
+
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $headerHeight;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $colorYellow;
+    padding: 0 20px 0 15px;
+    box-shadow: 0px 2px 14px 0px rgba(60, 78, 123, 0.25);
+    z-index: 2;
+
+    &__icons {
+        display: flex;
+        align-items: center;
+    }
+
+    &__iconWrapper {
+        position: relative;
+        margin: 0 25px 0 0;
+    }
+
+    &__badge {
+        position: absolute;
+        left: 70%;
+        bottom: 40%;
+        width: 30px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font: 1.1rem $assistantBold;
+        background: $colorBlack1;
+        color: $colorWhite;
+        // padding: 5px 8px;
+        border-radius: 13px;
+
+        &.changeBorderRadius {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+        }
+    }
+
+    &__icon {
+        width: 25px;
+    }
+}
+
+.logo {
+    height: 23px;
+
+    &__img {
+        height: 100%;
+    }
+}
+
+.mainNav {
+    box-shadow: 0px 2px 14px 0px rgba(60, 78, 123, 0.25);
+
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        width: 33.33%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__link {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: block;
+        font: 1.6rem $narkisThin;
+        text-align: center;
+        padding: 12px 0;
+
+        &.active {
+            &:after {
+                background: $colorBlue;
+            }
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 4px;
+            background: transparent;
+            transition: all .3s linear;
+        }
+    }
+}
+
+.searchBar {
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #dae6f3;
+
+
+    &__inner {
+        position: relative;
+        width: 90%;
+        height: 37px;
+        background: $colorWhite;
+    }
+
+    &__input {
+        height: 100%;
+        width: 100%;
+        border: none;
+        padding: 0 38px;
+        @include placeholder(#959eb0);
+    }
+
+    &__img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 13px;
+        height: 14px;
+    }
+}
+
+.xIcon {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:before,
+    &:after {
+        content: '';
+        @include centerAbsolute();
+        height: 1px;
+        width: 15px;
+        display: inline-block;
+        background: $colorBlack1;
+    }
+
+    &:before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &--noTransform {
+        transform: none;
+        top: 15px;
+    }
+}
+
+.stripTitle {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 1.8rem $narkisBlock;
+    color: $colorBlack;
+    text-align: center;
+    background: $colorWhite;
+    margin: 0 0 2px;
+}
+
+.itemsList {
+
+    &__item {
+        border-top: 2px solid #dae6f3;
+
+        &:last-child {
+            border-bottom: 2px solid #dae6f3;
+        }
+    }
+}
+
+.readOnlyItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+
+    &__mainInfo {
+        width: 80%;
+        display: flex;
+        align-items: center;
+    }
+
+    &__imgWrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        border-left: 1px solid #d1dae4;
+    }
+
+    &__img {
+        width: 22px;
+    }
+
+    &__titlesWrapper {
+        padding: 5px 10px 5px 0;
+    }
+
+    &__title {
+        font: 1.8rem $narkisBlock;
+        color: $colorBlack1;
+    }
+
+    &__status {
+        font: 1.4rem $assistantRegular;
+        color: $colorGray;
+    }
+
+    &__unit {
+        font: 1.4rem $assistantRegular;
+        color: $colorBlack;
+    }
+
+    &__date {
+        font: 1.4rem $assistantRegular;
+        color: $colorGray;
+    }
+
+    &__extraInfo {
+        width: 20%;
+        text-align: center;
+        padding: 5px 0;
+    }
+}
+
+.coloredCircle {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-left: 5px;
+
+    &--canceled {
+        background: #fd6d5e;
+    }
+
+    &--approved {
+        background: #0bb54f;
+    }
+
+    &--active {
+        background: #0bb54f;
+    }
+
+    &--pending {
+        background: $colorBlue;
+    }
+
+    &--finished {
+        background: #92a0af;
+    }
+}
+
+.searchResultItem {
+    position: relative;
+    padding: 20px 15px 20px 35px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        height: 15px;
+        width: 15px;
+        cursor: pointer;
+        border: solid $colorBlack1;
+        border-width: 2px 0 0 2px;
+        transform: translateY(-50%) rotate(-45deg);
+        transition: .3s linear;
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        margin: 0 0 12px;
+    }
+
+    &__unit {
+        width: 33%;
+        font: 1.4rem $assistantRegular;
+        color: $colorBlack;
+    }
+
+    &__distance {
+        width: 33%;
+        font: 1.4rem $assistantRegular;
+        color: $colorBlack;
+    }
+
+    &__locationIcon {
+        height: 12px;
+        font: 1.4rem $assistantRegular;
+        color: $colorBlack;
+        margin-left: 5px;
+    }
+
+    &__description {
+        font: 1.4rem $assistantRegular;
+        color: $colorBlack;
+    }
+}
+
+.rating {
+    width: 33%;
+    display: flex;
+
+    &__img {
+        height: 10px;
+        margin-left: 4px;
+    }
+}
+
+.orderDetails {
+    position: fixed;
+    top: $headerHeight;
+    left: 100%;
+    width: 100%;
+    height: calc(100vh - 55px);
+    // height: 100%;
+    background: $colorWhite;
+    padding: 15px;
+    overflow: auto;
+    z-index: 2;
+    transition: all .3s linear;
+
+    &.show {
+        left: 0;
+    }
+
+    &__title {
+        font: 1.8rem $narkisBlock;
+        color: $colorBlack;
+        margin: 0 0 5px;
+        text-align: center;
+    }
+
+    &__date {
+        font: 1.2rem $assistantSemiBold;
+        text-align: center;
+        margin: 0 0 15px;
+    }
+
+    &__field {
+        margin: 0 0 15px;
+
+        &--halfWidth {
+            width: 50%;
+            margin-bottom: 0;
+        }
+    }
+
+    &__twoFields {
+        display: flex;
+        margin: 0 -7.5px 15px;
+    }
+
+    &__fieldWrapper {
+        padding: 0 7.5px;
+    }
+
+    &__label {
+        font: 1.4rem $assistantRegular;
+        margin: 0 0 7px;
+        padding-right: 13px;
+
+        &--bold {
+            font: 1.4rem $assistantBold;
+        }
+    }
+
+    &__fieldText {
+        font: 1.4rem $assistantRegular;
+        background: #ecf2f9;
+        padding: 10px;
+
+        &--textArea {
+            width: 100%;
+            height: 85px;
+            border: none;
+            // margin: 0 0 20px;
+        }
+
+        &--phone {
+            color: #0a5cf2;
+            text-decoration: underline;
+        }
+    }
+
+    &__form {
+        margin: 0 0 90px;
+    }
+
+    .reportItemLink {
+        margin: 25px 0;
+    }
+}
+
+.statusWrapper {
+    margin: 20px 0 0;
+
+    &__label {
+        font: 1.4rem $assistantSemiBold;
+        margin: 0 0 5px;
+    }
+}
+
+.twoButtons {
+    display: flex;
+    margin: 0 -7.5px;
+
+    &__btnWrapper {
+        width: 50%;
+        padding: 0 7.5px;
+    }
+}
+
+.SideInfoPage {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    // height: calc(100vh - #{$headerHeight});
+    // height: 100%;
+    width: 100%;
+    @include transitionMove();
+    background: $colorWhite;
+
+    &__show {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+.balanceInfoSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 35px;
+    text-align: center;
+}
+
+.balanceWrapper {
+    &__statusTitle {
+        font: 2.1rem $narkisBlock;
+        color: $colorBlack;
+        margin: 0 0 30px;
+    }
+
+    &__img {
+        height: 30px;
+        margin: 0 0 15px;
+    }
+
+    &__currentBalance {
+        font: 4rem $rubikMedium;
+        color: $colorBlack;
+        margin: 0 0 15px;
+    }
+
+    &__secondaryTitle {
+        font: 1.5rem $assistantSemiBold;
+        color: $colorBlack;
+
+        &--currentFixesTitle {
+            margin: 0 0 35px;
+        }
+    }
+}
+
+.fixesTable {
+    border: 1px solid #adc1d7;
+    border-collapse: collapse;
+
+    &__text {
+        font: 1.5rem $assistantSemiBold;
+        color: $colorBlack;
+        padding: 15px;
+        border-right: none;
+        border-left: none;
+    }
+
+    &__number {
+        font-family: $rubikMedium;
+        padding: 15px;
+        border-right: none;
+        border-left: none;
+    }
+}
+
+.backArrow {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transform: translateY(50%);
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+        ;
+        height: 10px;
+        width: 10px;
+        padding: 3px;
+        cursor: pointer;
+        border: solid $colorBlack1;
+        border-width: 1px 0 0 1px;
+    }
+}
+
+.pageHeading {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    background: #dae6f3;
+    text-align: center;
+
+    &__textsWrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__text {
+        font: 1.8rem $narkisBlock;
+        color: $colorBlack1;
+    }
+
+    .backArrow {
+        bottom: 50%;
+        left: 25px;
+    }
+}
+
+.messages {
+    &__item {
+        border-bottom: 2px solid #dae6f3;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        padding: 20px 15px;
+    }
+
+    &__imgWrapper {
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: #e5edf7;
+        margin-left: 10px;
+    }
+
+    &__img {
+        height: 15px;
+    }
+}
+
+.messageTexts {
+    &__date {
+        font: 1.4rem $assistantRegular;
+        color: $colorGray;
+    }
+
+    &__info {
+        font: 1.4rem $assistantRegular;
+        color: $colorBlack;
+    }
+}
+
+.loginSection {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30% 40px 20px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-image: url('assets/imgs/iconsbg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(253, 232, 94, 0.6);
+        z-index: 2;
+    }
+}
+
+.loginForm {
+    position: relative;
+    z-index: 3;
+
+    &--success {
+        .loginForm__mainTitle {
+            font: 5rem $narkisBold;
+            color: $colorBlack1;
+            margin: 0 0 40px;
+            text-align: center;
+        }
+
+        .loginForm__subTitle {
+            font: 1.5rem $assistantBold;
+            color: $colorBlack1;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+
+        .loginForm__submit {
+            margin: 0 0 20px;
+        }
+    }
+
+    &__logoWrapper {
+        height: 30px;
+        text-align: center;
+        margin: 0 0 15px;
+    }
+
+    &__img {
+        height: 100%;
+    }
+
+    &__title {
+        font: 2rem $narkisBlock;
+        color: $colorBlack1;
+        margin: 0 0 35px;
+        text-align: center;
+    }
+
+    &__inputWrapper {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    &__input {
+        width: 100%;
+        font: 1.4rem $assistantRegular;
+        padding: 10px;
+        border: none;
+        margin: 0 0 40px;
+        @include placeholder(#959eb0);
+    }
+
+    &__submit {
+        width: 120px;
+        padding: 10px 0;
+        font: 1.5rem $assistantBold;
+        color: $colorWhite;
+        background: $colorBlack1;
+    }
+
+    &__btnWrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 0 20%;
+    }
+
+    &__sendAgain {
+        font: 1.4rem $assistantBold;
+        color: $colorBlack1;
+        text-decoration: underline;
+    }
+
+    &__sentAgain {
+        position: absolute;
+        bottom: -15px;
+        opacity: 0;
+        font: 1.3rem $assistantBold;
+        color: $colorBlack1;
+        padding: 10px 0 0;
+
+        &.show {
+            opacity: 1;
+        }
+    }
+}
+
+.validationError {
+    position: absolute;
+    bottom: 15px;
+    right: -150px;
+    font: 1.4rem $assistantBold;
+    color: #e2464f;
+    visibility: hidden;
+    transition: all .3s linear;
+
+    &.show {
+        right: 0;
+        visibility: visible
+    }
+}
+
+.loginContact {
+    text-align: center;
+    margin-top: auto;
+    z-index: 3;
+
+    &__text {
+        font: 1.4rem $assistantSemiBold;
+        color: $colorBlack1;
+        margin: 0 0 7px;
+    }
+
+    &__number {
+        font: 1.4rem $assistantSemiBold;
+        color: $colorBlack1;
+        text-decoration: underline;
+        padding: 0 10px;
+        border-left: 2px solid $colorBlack1;
+
+        &:first-child {
+            position: relative;
+            border: none;
+        }
+    }
+
+    &__extraInfo {
+        font: 1.2rem $assistantSemiBold;
+        color: $colorBlack1;
+        padding: 15px 0 0;
+    }
+}
+
+.reportProblemSection {
+    position: relative;
+    padding: 35px 15px 15px;
+
+    .backArrow {
+        top: 10px;
+        left: 15px;
+    }
+}
+
+.reportItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__title {
+        font: 1.8rem $narkisBlock;
+        color: $colorBlack1;
+        margin: 0 0 5px;
+        text-align: center;
+    }
+
+    &__orderOverview {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0 0 50px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 25px;
+            transform: translateX(-50%);
+            display: inline-block;
+            height: 2px;
+            width: 35px;
+            background: $colorYellow;
+        }
+    }
+
+    &__info {
+        font: 1.4rem $assistantRegular;
+        color: $colorGray;
+        padding: 0 5px;
+        border-left: 1px solid $colorGray;
+
+        &:last-child {
+            border: none;
+        }
+    }
+
+    &__boldTitle {
+        font: 1.5rem $assistantBold;
+        margin: 0 0 20px;
+        text-align: center;
+    }
+
+    &__textArea {
+        width: 100%;
+        height: 125px;
+        padding: 15px;
+        font: 1.4rem $assistantRegular;
+        background: #f2f6fb;
+        border: 1px solid #b4c6db;
+        @include placeholder($placeholdercolor);
+    }
+
+    .btnWrapper {
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+    }
+}
+
+.reportItemForm {
+    width: 100%;
+}
+
+.routerWrapper {
+    height: 100%;
+}
+
+.ratingWrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.ratingSection {
+    position: fixed;
+    top: 97px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 15px 15px;
+    @include overflowY();
+
+    .xIcon {
+        top: 10px;
+        left: 15px;
+    }
+
+    .simpleText {
+        font: 1.4rem $assistantRegular;
+        margin: 0 0 20px;
+        text-align: center;
+    }
+
+    .starRating {
+        margin: 0 0 35px;
+    }
+
+    .reportItemLink {
+        margin: 0 0 30px;
+    }
+
+    .btn {
+        margin-top: auto;
+    }
+}
+
+.reportItemLink {
+    display: block;
+    font: 1.5rem $assistantBold;
+    color: $colorBlack1;
+    text-decoration: underline;
+}
+
+.manageItemsSection {
+
+    &__headers {
+        display: flex;
+        font: 1.4rem $assistantBold;
+        padding: 10px 15px;
+        border-bottom: 2px solid #dae6f3;
+    }
+
+    &__itemHeader {
+        width: 80%;
+    }
+
+    &__actionsHeader {
+        width: 20%;
+    }
+}
+
+.manageItemsList {
+    &__item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-bottom: 2px solid #dae6f3;
+        padding: 10px 20px 10px 15px;
+    }
+
+    .contentWrapper {
+        display: flex;
+    }
+}
+
+.manageItemCmp {
+    width: 100%;
+}
+
+.manageItem {
+    &__texts {
+        width: 80%;
+    }
+
+    &__actions {
+        width: 20%;
+    }
+
+    &__name {
+        font: 1.8rem $narkisBlock;
+    }
+
+    &__description {
+        font: 1.4rem $assistantRegular;
+        color: $colorGray;
+    }
+}
+
+.editAbleItem {
+    display: flex;
+    align-items: center;
+
+    &__quantity {
+        width: 31px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font: 1.4rem $assistantRegular;
+        border: none;
+        background: #ecf2f9;
+        text-align: center;
+    }
+
+    &__iconWrapper {
+        width: 31px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__editIcon {
+        width: 11px;
+    }
+}
+
+.customCheckBox {
+    position: relative;
+    width: 25px;
+    min-width: 25px;
+    height: 25px;
+    min-height: 25px;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 10px;
+
+    .checkmark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        background: #e1ebf5;
+        @include transitionMove();
+
+
+        &:before {
+            left: 100%;
+
+        }
+
+        &:after {
+            bottom: 100%;
+        }
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &.checked {
+            ~.checkmark {
+                background: $colorYellow;
+                color: $colorBlack;
+                border-color: transparent;
+
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: $colorBlack;
+                }
+
+                &:before {
+                    width: 11px;
+                    height: 2px;
+                }
+
+                &:after {
+                    width: 2px;
+                    height: 11px;
+                }
+            }
+        }
+    }
+}
+
+.descriptionPopUp {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(74, 74, 75, .7);
+    z-index: 10;
+
+    &__input {
+        position: absolute;
+        bottom: 53px;
+        left: 0;
+        height: 50%;
+        width: 100%;
+        background: $colorWhite;
+        font: 1.4rem $assistantRegular;
+        padding: 20px 25px;
+        @include placeholder(#959eb0);
+    }
+
+    .btn {
+        position: absolute;
+        bottom: 0;
+    }
+}

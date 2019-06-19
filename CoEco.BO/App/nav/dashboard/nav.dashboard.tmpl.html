@@ -1,0 +1,10 @@
+﻿<div class="row" style="margin-top: 2em">
+    <a class="col-md-3" ng-repeat="item in vm.items" ui-sref="{{item.name}}" ng-if="vm.permissions[item.name]">
+
+        <div class="card">
+            <div class="text-center"> <i class="fa-5x fa fa-{{item.icon}}"></i></div>
+            <div class="text-center"><h2>{{item.title}}</h2></div>
+        </div>
+
+    </a>
+</div>

@@ -1,0 +1,17 @@
+[
+  {
+    "itemId": 1,
+    "itemName": "מקדחה",
+    "iconName": "drill"
+  },
+  {
+    "itemId": 2,
+    "itemName": "מיטה צרפתית",
+    "iconName": "tent"
+  },
+  {
+    "itemId": 3,
+    "itemName": "טיפול חודשי לרכב לבן",
+    "iconName": "car"
+  }
+]

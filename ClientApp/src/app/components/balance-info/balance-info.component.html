@@ -1,0 +1,32 @@
+<section class="balanceInfoSection" *ngIf="data">
+    <button class="xIcon xIcon--noTransform" (click)="closeBalanceDetails()"></button>
+
+    <div class="balanceWrapper">
+      <div class="balanceWrapper__statusTitle" appText="balance_status"></div> 
+
+    <div>
+      <img src="assets/imgs/coins.png" class="balanceWrapper__img" alt="">
+    </div>
+
+    <div class="balanceWrapper__currentBalance">{{ data.currentBalance }}</div>
+
+    <div class="balanceWrapper__secondaryTitle balanceWrapper__secondaryTitle--currentFixesTitle" appText="current_balance"></div>
+
+    <table class="fixesTable" border="1">
+      <tr>
+        <td class="fixesTable__text" appText="initial_balance"></td>
+        <td class="fixesTable__number">{{ data.originalBalance }}</td>
+      </tr>
+      <tr>
+        <td class="fixesTable__text" appText="incoming_balance"></td>
+        <td class="fixesTable__number">{{ data.incomingBalance }}</td>
+      </tr>
+      <tr>
+        <td class="fixesTable__text" appText="outgoing_balance"></td>
+        <td class="fixesTable__number">{{ data.outgoingBalance }}</td>
+      </tr>
+    </table>
+
+  </div>
+
+</section> 

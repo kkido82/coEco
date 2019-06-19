@@ -1,0 +1,120 @@
+﻿<div ng-show="vm.canShow">
+
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <div class="form-group col-sm-4">
+                <div class="form-group">
+                    <label class="col-sm-3">שם פריט:</label>
+                    <input class="col-sm-7 form-control" ng-model="vm.filters.Name.contains" />
+                </div>
+            </div>
+            <div class="form-group col-sm-4">
+                <label class="col-sm-3">יחידה מבקשת:</label>
+                <select class="col-sm-7 form-control" placeholder="יחידה מבקשת" ng-model="vm.filters.UnitRequestsID" entities-dropdown="Units" value-field="ID" text-field="UnitName"></select>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <label class="col-sm-3">יחידה משאילה:</label>
+                <select class="col-sm-7 form-control" placeholder="יחידה מבקשת" ng-model="vm.filters.UnitLendingID" entities-dropdown="Units" value-field="ID" text-field="UnitName"></select>
+            </div>
+            <div class="form-group col-sm-4">
+                <label class="col-sm-3">סטאטוס:</label>
+                <select class="col-sm-7 form-control" placeholder="סטאטוס" ng-model="vm.filters.StatusID" entities-dropdown="OrderStatuses" value-field="ID" text-field="StatusName"></select>
+            </div>
+            <div class="form-group col-sm-4">
+                <label class="col-sm-3">בין תאריכים:</label>
+
+                <div class="col-sm-4" style="padding:0">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" placeholder="מתאריך" date-range-picker class="form-control pull-right" ng-model="vm.fromDate"
+                               options="{singleDatePicker: true,showDropdowns: true, locale:vm.locale, timePicker: true, timePicker24Hour: true}">
+                    </div>
+                </div>
+                <div class="col-sm-4 col-sm-offset-1" style="padding:0">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" placeholder="עד תאריך" date-range-picker class="form-control pull-right" ng-model="vm.toDate"
+                               options="{singleDatePicker: true,showDropdowns: true, locale:vm.locale, timePicker: true,timePicker24Hour: true}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+      
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <button class="btn left btn-app" ng-click="vm.resetSearchOverride()"><i class="fa fa-remove"></i>נקה</button>
+        <button class="btn btn-app" ng-click="vm.searchOverride()"><i class="fa fa-search"></i>חפש</button>
+    </div>
+    <div class="col-sm-4 col-sm-offset-4">
+        <button class="btn btn-success  btn-app pull-left bg-olive" ng-click="vm.exportToExcel()"><i class="fa fa-file-excel-o"></i>&nbsp;יצא</button>       
+    </div>
+</div>
+<hr />
+
+
+
+<hr />
+
+<div class="box box-danger">
+    <table class="table table-striped table-condensed table-bordered">
+        <thead>
+            <tr>
+                <th ng-click="vm.reorderBy('Name')">שם פריט</th>
+                <th ng-click="vm.reorderBy('Cost')">עלות פריט</th>
+                <th ng-click="vm.reorderBy('RequestingUnitName')">יחידה מבקשת </th>
+                <th ng-click="vm.reorderBy('RequestingUnitCurrentWheelQuantity')">כמות גלגלים יחידה מבקשת</th>
+                <th ng-click="vm.reorderBy('FirstName')">שם פרטי פותח הבקשה</th>
+                <th ng-click="vm.reorderBy('LastName')">שם משפחה פותח הבקשה</th>
+                <th ng-click="vm.reorderBy('OrderDate')">תאריך פתיחת הבקשה</th>
+                <th ng-click="vm.reorderBy('LendingUnitName')">שם יחידה משאילה</th>
+                <th ng-click="vm.reorderBy('LendingUnitCurrentWheelQuantity')">כמות גלגלים יחידה משאילה</th>
+                <th ng-click="vm.reorderBy('Distance')">מרחק בין יחידות ק"מ</th>
+                <th ng-click="vm.reorderBy('StatusName')">סטאטוס הזמנה</th>
+                <th ng-click="vm.reorderBy('UpdatedOn')">תאריך עדכון סטאטוס</th>
+                <th ng-click="vm.reorderBy('RatingLendingUnit')">דירוג יחידה משאילה</th>
+                <th ng-click="vm.reorderBy('RatingRequestUnit')">דירוג יחידה מבקשת</th>
+                <th>חסום</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="entity in vm.entities">
+                <td>{{ entity.Name }}</td>
+                <td>{{ entity.Cost}}</td>
+                <td>{{ entity.RequestingUnitName}}</td>
+                <td>{{ entity.RequestingUnitCurrentWheelQuantity}}</td>
+                <td>{{ entity.FirstName}}</td>
+                <td>{{ entity.LastName}}</td>
+                <td>{{ entity.OrderDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                <td>{{ entity.LendingUnitName}}</td>
+                <td>{{ entity.LendingUnitCurrentWheelQuantity}}</td>
+                <td>{{ entity.Distance}}</td>
+                <td>{{ entity.StatusName}}</td>
+                <td>{{ entity.UpdatedOn | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                <td>{{ entity.RatingLendingUnit}}</td>
+                <td>{{ entity.RatingRequestUnit}}</td>
+                <td>{{ entity.Disable |yesNo}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <items-pager num-pages="vm.getNumPages()" page-size="vm.pagingContext.itemsPerPage" page-index="vm.pagingContext.pageIndex" paging-options="vm.pagingContext.pagingOptions"
+                     on-paging="vm.setPage(page)" on-page-size-change="vm.setPageSize(pageSize)">
+        </items-pager>
+    </div>
+</div>

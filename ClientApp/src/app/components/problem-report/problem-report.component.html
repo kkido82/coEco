@@ -1,0 +1,24 @@
+<section class="reportProblemSection">
+  <button class="backArrow" (click)="close.emit()"></button>
+
+  <div class="reportItem">
+    <div class="reportItem__title">{{ order.itemName }}</div>
+    <ul class="reportItem__orderOverview">
+      <li class="reportItem__info">הזמנה מס' {{ order.itemId }}</li>
+      <li class="reportItem__info">{{ order.orderDate | amDateFormat: "DD.MM.YY" }}</li>
+      <li class="reportItem__info">{{ order.fromUnit }}</li>
+    </ul>
+
+    <div class="reportItem__boldTitle" appText="problem_description"></div>
+    <form [formGroup]="form" class="reportItemForm">
+      <textarea
+        class="reportItem__textArea"
+        placeholder="הוסיפו תיאור פרטי הבעיה"
+        formControlName="description"
+      ></textarea>
+    </form>
+    <div class="btnWrapper">
+      <button type="button" class="btn btn--dark" [disabled]="form.invalid" (click)="submit()" appText="send"></button>
+    </div>
+  </div>
+</section>

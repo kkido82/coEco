@@ -1,0 +1,153 @@
+@mixin font-face($family, $file-name) {
+  $path: "/assets/fonts/"+ $file-name;
+
+  @font-face {
+    font-family: '#{$family}';
+    src: url('#{$path}.eot');
+    src: url('#{$path}.eot?#iefix') format('embedded-opentype'),
+    /**/
+    url('#{$path}.woff') format('woff'),
+    /**/
+    url('#{$path}.ttf') format('truetype'),
+    /**/
+    url('#{$path}.svg\##{$family}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@mixin keyboardFocus{
+  outline: 3px solid #000 !important;
+  outline-offset: -1px;
+}
+
+@mixin textReset() {
+  color: $colorBlack;
+  font: 10px 'ariel';
+  direction: rtl;
+  text-align: right;
+}
+
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+}
+
+@mixin transitionMove() {
+  transition: all 0.3s linear;
+}
+
+@mixin centerAbsolute() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin centerFlex() {
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin keyframes($name) {
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-o-keyframes #{$name} {
+    @content;
+  }
+
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin createOverlay($color) {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: #{$color};
+}
+
+@mixin create-caret($color, $size, $thinkness, $direction) {
+  width: #{$size};
+  height: #{$size};
+  border-top: none;
+  border-left: none;
+  display: inline-block;
+  border-right: #{$thinkness} solid #{$color};
+  border-bottom: #{$thinkness} solid #{$color};
+
+  @if $direction==left {
+    transform: rotate(135deg);
+  }
+
+  @else if $direction==right {
+    transform: rotate(-45deg);
+  }
+
+  @else if $direction==down {
+    transform: rotate(45deg);
+  }
+
+  @else {
+    transform: rotate(-135deg);
+  }
+}
+
+@mixin createX($colour, $size, $thickness: 2px) {
+  width: $size;
+  height: $size;
+  position: absolute;
+  display: inline-block;
+
+  &:after,
+  &:before {
+    content: "";
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    position: absolute;
+    height: $thickness;
+    background-color: $colour;
+  }
+
+  &:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+@mixin HoverEffect() {
+  transform: scale(.9);
+}
+
+@mixin overflowY {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}

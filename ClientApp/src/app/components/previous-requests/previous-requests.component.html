@@ -1,0 +1,5 @@
+<ul class="itemsList">
+  <li class="itemsList__item" *ngFor="let item of requests" >
+    <app-read-only-item [data]="item" (click)="select.emit(item)"></app-read-only-item>
+  </li>
+</ul>

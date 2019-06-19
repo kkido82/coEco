@@ -1,0 +1,22 @@
+<form class="searchBar" [formGroup]="form">
+  <div class="searchBar__inner">
+    <img
+      src="assets/imgs/searchicon.png"
+      class="searchBar__img"
+      alt=""
+    />
+    <input
+      type="text"
+      #input
+      class="searchBar__input"
+      formControlName="inputValue"
+      [placeholder]="placeholder"
+      (input)="submit($event.target.value)"
+    />
+    <button
+      class="xIcon"
+      *ngIf="form.controls.inputValue.value"
+      (click)="clearInput()"
+    ></button>
+  </div>
+</form>

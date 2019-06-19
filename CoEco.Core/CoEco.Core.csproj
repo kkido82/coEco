@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B04DF977-1ED6-4C31-AED6-490FE107F262}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoEco.Core</RootNamespace>
+    <AssemblyName>CoEco.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\IUserContext.cs" />
+    <Compile Include="CoreIoc.cs" />
+    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="Eventing\EventPublisher.cs" />
+    <Compile Include="Eventing\Events\EventsSubscriptionService.cs" />
+    <Compile Include="Eventing\Events\Extensions.cs" />
+    <Compile Include="Eventing\IConsumer.cs" />
+    <Compile Include="Eventing\IEventPublisher.cs" />
+    <Compile Include="Eventing\ILogger.cs" />
+    <Compile Include="Eventing\ISubscriptionService.cs" />
+    <Compile Include="Helpers\BulkCopy.cs" />
+    <Compile Include="Helpers\BulkInsert.cs" />
+    <Compile Include="Helpers\DataReader.cs" />
+    <Compile Include="Infrastructure\AutofacScopeFactory.cs" />
+    <Compile Include="Infrastructure\ContainerBuilderExt.cs" />
+    <Compile Include="Infrastructure\Dispatcher.cs" />
+    <Compile Include="Infrastructure\Error.cs" />
+    <Compile Include="Infrastructure\GeneralErrors.cs" />
+    <Compile Include="Interfaces\IHandler.cs" />
+    <Compile Include="Interfaces\IHandlerScope.cs" />
+    <Compile Include="Interfaces\IRequest.cs" />
+    <Compile Include="Ordering\Domain\OrderStatusId.cs" />
+    <Compile Include="Ordering\Messages\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Ordering\Messages\MessagesConsumer.cs" />
+    <Compile Include="Ordering\Domain\Item.cs" />
+    <Compile Include="Ordering\Domain\Member.cs" />
+    <Compile Include="Ordering\Domain\Order.cs" />
+    <Compile Include="Ordering\Domain\Permission.cs" />
+    <Compile Include="Ordering\Domain\Unit.cs" />
+    <Compile Include="Ordering\Domain\Errors.cs" />
+    <Compile Include="Ordering\Domain\UnitItem.cs" />
+    <Compile Include="Ordering\Dto\Events\OrderCreated.cs" />
+    <Compile Include="Ordering\Dto\GatewayResponses\BaseGatewayResponse.cs" />
+    <Compile Include="Ordering\Dto\GatewayResponses\Repositories\CreateOrderResponse.cs" />
+    <Compile Include="Ordering\Dto\Responses\ResponseBase.cs" />
+    <Compile Include="Ordering\Handlers\ApproveOrder.cs" />
+    <Compile Include="Ordering\Handlers\CancelApproved.cs" />
+    <Compile Include="Ordering\Handlers\CancelNewOrder.cs" />
+    <Compile Include="Ordering\Handlers\CompleteOrder.cs" />
+    <Compile Include="Ordering\Handlers\ConfirmOrder.cs" />
+    <Compile Include="Ordering\Handlers\OrderHandlerBase.cs" />
+    <Compile Include="Ordering\Handlers\ActivateOrder.cs" />
+    <Compile Include="Ordering\Messages\Sender.cs" />
+    <Compile Include="Ordering\OrderingIoc.cs" />
+    <Compile Include="Services\IMessagesService.cs" />
+    <Compile Include="Services\IOrderingService.cs" />
+    <Compile Include="Ordering\Handlers\OpenOrder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AppDomainTypeFinder.cs" />
+    <Compile Include="Services\ExportableResolver.cs" />
+    <Compile Include="Services\ExportXslService.cs" />
+    <Compile Include="Services\FakeLogger.cs" />
+    <Compile Include="Services\IExportableConverter.cs" />
+    <Compile Include="Services\IExportableResolver.cs" />
+    <Compile Include="Services\IExportXslService.cs" />
+    <Compile Include="Services\ISmsSender.cs" />
+    <Compile Include="Services\ITypeFinder.cs" />
+    <Compile Include="Services\TypeExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ordering\Dto\Errors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ordering\Messages\Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

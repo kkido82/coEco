@@ -1,0 +1,32 @@
+<section class="ratingSection SideInfoPage" [class.SideInfoPage__show]="show">
+  <button class="xIcon xIcon--noTransform" (click)="doClose()"></button>
+
+  <div class="reportItem__title">{{ order.itemName }}</div>
+  <ul class="reportItem__orderOverview">
+    <li class="reportItem__info">הזמנה מס' {{ order.itemId }}</li>
+    <li class="reportItem__info">{{ order.orderDate }}</li>
+    <li class="reportItem__info">{{ order.fromUnit }}</li>
+  </ul>
+  <div class="reportItem__boldTitle" appText="answer_few_questions"></div>
+  <div class="simpleText" appText="correspondence_rate_question"></div>
+
+  <div class="ratingWrapper">
+    <app-star-rating
+      (rateChanged)="correspondenceRate($event)"
+      [startIndex]="startIndex1"
+    ></app-star-rating>
+
+    <div class="simpleText" appText="lending_satisfaction_question"></div>
+
+    <app-star-rating
+    (rateChanged)="satisfactionRate($event)"
+    [startIndex]="startIndex2"
+  ></app-star-rating>
+
+  <a routerLink="" class="reportItemLink" appText="has_problem"></a>
+
+  
+</div>
+<button class="btn btn--dark" appText="send_feedback"> </button>
+</section>
+

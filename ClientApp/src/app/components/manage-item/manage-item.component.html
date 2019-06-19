@@ -1,0 +1,49 @@
+<div class="contentWrapper">
+  <div class="manageItem__texts">
+    <div class="manageItem__name">
+      {{ item.itemName }}
+    </div>
+    <div class="manageItem__description">
+      {{ form.value.description }}
+    </div>
+  </div>
+  <div class="manageItem__form">
+    <form
+      class="editAbleItem"
+      [formGroup]="form"
+      (ngSubmit)="submitItem()"
+      name="myForm"
+      method="post"
+    >
+      <input
+        type="tel"
+        class="editAbleItem__quantity"
+        formControlName="quantity"
+        [value]="item.qty"
+        (change)="submitItem()"
+      />
+      <span class="editAbleItem__iconWrapper" (click)="openTextBox()">
+        <img
+          src="assets/imgs/editicon.png"
+          class="editAbleItem__editIcon"
+          *ngIf="permissions.canUpdateInventory"
+          alt=""
+        />
+      </span>
+      <div
+        class="descriptionPopUp"
+        *ngIf="showTextBox"
+        @fade
+        (click)="closeTextBox()"
+      >
+        <textarea
+          class="descriptionPopUp__input"
+          formControlName="description"
+          (click)="$event.stopPropagation()"
+          placeholder="הוסיפו טקסט תיאור"
+        ></textarea>
+        <button class="btn btn--dark" type="submit">שמירה</button>
+      </div>
+    </form>
+  </div>
+</div>

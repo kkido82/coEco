@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendSms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="recipients" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senderName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsDetailed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messagePelephone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageCellcom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageOrange" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageMirs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="recipients" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerParameter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerMessageId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="messageInterval" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeToSend" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="senderName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senderNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxSegments" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsDetailedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsDetailedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendSmsSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSms" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsDetailedSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSmsDetailed" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsDetailedSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsDetailedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSmsXml" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsXmlResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SendMessageSoap">
+    <wsdl:operation name="SendSms">
+      <wsdl:input message="tns:SendSmsSoapIn" />
+      <wsdl:output message="tns:SendSmsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsDetailed">
+      <wsdl:input message="tns:SendSmsDetailedSoapIn" />
+      <wsdl:output message="tns:SendSmsDetailedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsXml">
+      <wsdl:input message="tns:SendSmsXmlSoapIn" />
+      <wsdl:output message="tns:SendSmsXmlSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SendMessageSoap" type="tns:SendMessageSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSms">
+      <soap:operation soapAction="http://tempuri.org/SendSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsDetailed">
+      <soap:operation soapAction="http://tempuri.org/SendSmsDetailed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsXml">
+      <soap:operation soapAction="http://tempuri.org/SendSmsXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendMessageSoap12" type="tns:SendMessageSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSms">
+      <soap12:operation soapAction="http://tempuri.org/SendSms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsDetailed">
+      <soap12:operation soapAction="http://tempuri.org/SendSmsDetailed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsXml">
+      <soap12:operation soapAction="http://tempuri.org/SendSmsXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SendMessage">
+    <wsdl:port name="SendMessageSoap" binding="tns:SendMessageSoap">
+      <soap:address location="http://api.inforu.co.il/SendMessage.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendMessageSoap12" binding="tns:SendMessageSoap12">
+      <soap12:address location="http://api.inforu.co.il/SendMessage.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
